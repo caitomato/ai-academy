@@ -4,7 +4,7 @@ import { emptyState, grade, parseState, sample } from "./progress";
 describe("curriculum contract", () => {
   it("covers nine chapters with complete lessons and unique question IDs", () => {
     expect(chapters).toHaveLength(9);
-    expect(lessons).toHaveLength(83);
+    expect(lessons).toHaveLength(90);
     expect(new Set(questions.map((q) => q.id)).size).toBe(questions.length);
     for (const l of lessons) {
       expect(l.questions.length).toBeGreaterThanOrEqual(3);

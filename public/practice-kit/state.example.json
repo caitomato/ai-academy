@@ -1,0 +1,13 @@
+{
+  "exampleOnly": true,
+  "batch": "batch-01",
+  "inputVersion": "fictional-announcements-v1",
+  "stages": {
+    "collect": {"status": "passed", "output": "news/batch-01.md", "actualCount": 3},
+    "report": {"status": "failed", "output": null, "reason": "教学模拟：工具未返回文件"},
+    "topics": {"status": "pending", "output": null},
+    "script": {"status": "pending", "output": null}
+  },
+  "resumeFrom": "report",
+  "note": "这是说明结构的教学数据，不会自动执行。日志与状态必须由真实执行过程维护。"
+}

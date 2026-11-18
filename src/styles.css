@@ -1889,6 +1889,24 @@ pre {
     font-size: 12px;
   }
 }
+.practice-lab {
+  margin: 32px 0;
+  padding: 28px 0;
+  border-block: 1px solid var(--line);
+}
+.lab-prompt { margin: 24px 0; background: #f4f3ed; padding: 20px; }
+.lab-prompt-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.lab-prompt pre { white-space: pre-wrap; overflow-wrap: anywhere; background: transparent; color: inherit; padding: 12px 0; margin-bottom: 0; font: inherit; }
+.lab-prompt .secondary { font-size: 13px; padding: 8px 12px; }
+.lab-walkthrough { padding-left: 24px; }
+.lab-walkthrough li { padding-left: 8px; margin-bottom: 20px; }
+.lab-walkthrough p { margin-top: 6px; }
+.lab-walkthrough pre { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 13px; padding: 16px; }
+.practice-lab a { overflow-wrap: anywhere; }
+.practice-lab li { line-height: 1.85; }
+.practice-lab details { border-top: 1px solid var(--line); padding: 16px 0; }
+.practice-lab summary { cursor: pointer; line-height: 1.6; font-weight: 600; }
+.practice-lab details p { margin-bottom: 0; }
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

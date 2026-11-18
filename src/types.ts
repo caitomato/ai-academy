@@ -26,6 +26,15 @@ export type Lesson = {
   questions: Question[];
   test: Question[];
   sourceNote?: string;
+  lab?: {
+    title: string;
+    setup: string;
+    prompt: string;
+    walkthrough: { action: string; expected: string; code?: string }[];
+    checks: string[];
+    troubleshooting: { symptom: string; remedy: string }[];
+    resources?: { title: string; href: string; download?: boolean }[];
+  };
 };
 export type Chapter = {
   id: number;

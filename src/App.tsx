@@ -11,6 +11,7 @@ import {
   today,
 } from "./progress";
 import { Quiz, Test } from "./components/Quiz";
+import { PracticeLab } from "./components/PracticeLab";
 import {
   ArrowRight,
   ArrowLeft,
@@ -722,7 +723,7 @@ export default function App() {
                     <span className="eyebrow">课程</span>
                     <h1>{page === "bookmarks" ? "收藏的课程" : "全部课程"}</h1>
                     <p>
-                      9 大章节，83 个循序渐进的小课。随时选择你感兴趣的方向。
+                      9 大章节，90 个循序渐进的小课。随时选择你感兴趣的方向。
                     </p>
                   </div>
                 </div>
@@ -769,7 +770,7 @@ export default function App() {
                       <Clock3 size={16} />
                       {lesson.minutes} 分钟
                     </span>
-                    <span>原资料第 {lesson.pages} 页</span>
+                    <span>{lesson.pages === "视频补充" ? "视频主题补充" : `原资料第 ${lesson.pages} 页`}</span>
                     <span>原创教学改写</span>
                     <button
                       className={`text-button ${state.bookmarks.includes(id) ? "saved" : ""}`}
@@ -848,6 +849,7 @@ export default function App() {
                           <li key={s}>{s}</li>
                         ))}
                       </ol>
+                      {lesson.lab && <PracticeLab key={id} lab={lesson.lab} />}
                       <label className="note-label" htmlFor="practice-note">
                         记录你的结果与发现
                       </label>
@@ -908,7 +910,7 @@ export default function App() {
                     </section>
                     <p className="source-note">
                       {lesson.sourceNote}{" "}
-                      来源资料日期：2026-06-03；课程整理日期：2026-11-18。
+                        PDF 资料日期：2026-06-03；课程整理日期：2026-11-19。
                       {lesson.id === "03-08" &&
                         "本节原文仅有简略条目，流程与练习为补充教学。"}
                     </p>

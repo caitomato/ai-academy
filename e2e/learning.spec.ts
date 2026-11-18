@@ -183,3 +183,45 @@ test("reading layout respects reduced motion and keeps controls accessible", asy
     ),
   ).toBe(true);
 });
+
+test("practice cards support copying, troubleshooting, material downloads and saved notes", async ({ page, context }) => {
+  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+  await page.goto("./#lesson/03-11");
+  const lab = page.locator(".practice-lab");
+  await expect(lab.getByRole("heading", { name: "四个步骤有各自的过关条件" })).toBeVisible();
+  await lab.getByRole("button", { name: "复制任务", exact: true }).click();
+  await expect(lab.getByRole("status")).toContainText("已复制");
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toContain("模拟报告阶段失败");
+  await lab.locator("summary").click();
+  await expect(lab.locator("details")).toHaveAttribute("open", "");
+  await expect(lab.locator("details")).toContainText("不编造4条凑数");
+  const download = page.waitForEvent("download");
+  await lab.getByRole("link", { name: "状态文件示例" }).click();
+  expect((await download).suggestedFilename()).toBe("state.example.json");
+  await page.getByLabel("记录你的结果与发现").fill("来源表通过，报告阶段重试。");
+  await page.reload();
+  await expect(page.getByLabel("记录你的结果与发现")).toHaveValue("来源表通过，报告阶段重试。");
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("./#lesson/02-02");
+  await expect(page.locator(".practice-lab pre").first()).toContainText("Get-Location");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: "test-results/practice-mobile.png", fullPage: true, animations: "disabled" });
+  await page.goto("./#lesson/02-01");
+  await expect(page.locator(".lesson-header h1")).toHaveText("检查已有工具与工作区");
+  await expect(page.locator(".practice-lab")).not.toContainText("claude --help");
+  await page.goto("./#lesson/03-10");
+  await expect(page.locator(".practice-lab")).toContainText("每条引用用编辑器搜索核实");
+});
+
+test("all bundled practice resources work under the deployed subdirectory", async ({ request }) => {
+  const files = ["README.md", "notes.md", "study.md", "study-card/SKILL.md", "slides-source.md", "learning.csv", "course.md", "update.md", "announcements.html", "announcements.csv", "state.example.json", "storyboard.md"];
+  for (const file of files) {
+    const response = await request.get(`./practice-kit/${file}`);
+    expect(response.ok(), file).toBe(true);
+    const body = await response.text();
+    expect(body.length, file).toBeGreaterThan(40);
+    if (file !== "announcements.html") expect(body, file).not.toContain('<div id="root">');
+  }
+  const state = await request.get("./practice-kit/state.example.json");
+  expect((await state.json()).resumeFrom).toBe("report");
+});

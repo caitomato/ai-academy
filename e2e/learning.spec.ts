@@ -19,7 +19,7 @@ test("learning, wrong answers, persistence, tests and exam", async ({
   });
   await page.getByRole("link", { name: "开始第一课" }).click();
   await expect(
-    page.getByRole("heading", { name: "AI 学习路线概述", exact: true }),
+    page.getByRole("heading", { name: "AI 学习路线概述", exact: true, level: 1 }),
   ).toBeVisible();
   await page.getByRole("button", { name: "收藏课程", exact: true }).click();
   await page

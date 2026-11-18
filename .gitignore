@@ -6,3 +6,6 @@ test-results/
 *.tsbuildinfo
 playwright-report/
 __pycache__/
+
+# Private teaching sources and derived transcripts / frames
+materials/

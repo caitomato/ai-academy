@@ -2,6 +2,7 @@
 from pathlib import Path
 import json
 from video_enrichment import enrich
+from video_sample import apply_sample
 
 ROOT = Path(__file__).resolve().parents[1]
 chapters = []
@@ -66,5 +67,6 @@ for chapter in chapters:
             test[0]=question('t1','code','阅读下面的 Python 代码，选择输出结果。',[wrong[0],answer,wrong[1]],[answer],explanation,'按行模拟执行，留意类型和索引。',code=code)
         lesson['test']=test
         enrich(lesson)
+        apply_sample(lesson)
     (ROOT/f"src/data/curriculum/chapter{chapter['id']:02}.json").write_text(json.dumps(chapter,ensure_ascii=False,indent=2),encoding='utf-8')
 print(f"Compiled {len(chapters)} chapters, {sum(len(c['lessons']) for c in chapters)} lessons")

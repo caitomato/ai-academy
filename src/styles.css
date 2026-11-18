@@ -1919,3 +1919,19 @@ pre {
     scroll-behavior: auto !important;
   }
 }
+.video-lesson { border-top: 1px solid var(--line, #ddd); padding-top: 2rem; }
+.source-note { border-left: 3px solid #37634b; padding: 1rem 1.3rem; background: #f0f3ed; border-radius: 0 8px 8px 0; }
+.video-visuals { display: grid; gap: 1rem; }
+.video-visuals figure { margin: 0; border: 1px solid #d8ded5; border-radius: 10px; overflow: hidden; }
+.video-visuals figcaption { padding: 1rem; font-size: .9rem; line-height: 1.8; }
+.video-visuals pre { margin: 0; border-radius: 0; }
+.runtime-map { padding: 1.5rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem; background: #eef2eb; }
+.runtime-map span { background: #fff; border: 1px solid #c9d5c6; padding: .7rem; border-radius: 6px; }
+.terminal-simulator { padding: 1.2rem; border-radius: 10px; border: 1px solid #c9d5c6; }
+.terminal-simulator pre { min-height: 110px; max-height: 430px; overflow: auto; white-space: pre-wrap; }
+.terminal-entry { display: flex; gap: .6rem; margin-top: .5rem; }
+.terminal-entry input { flex: 1; min-width: 0; border: 1px solid #a6b49f; border-radius: 5px; padding: .7rem; font: inherit; }
+.terminal-simulator button { border: 1px solid #37634b; border-radius: 5px; padding: .65rem 1rem; background: #37634b; color: white; cursor: pointer; }
+.terminal-simulator button:disabled { opacity: .65; cursor: default; }
+.terminal-simulator .sim-reset { margin-top: .75rem; background: transparent; color: #37634b; }
+@media(max-width: 600px) { .terminal-entry { flex-direction: column; } .runtime-map { flex-direction: column; } }

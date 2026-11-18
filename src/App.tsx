@@ -12,6 +12,7 @@ import {
 } from "./progress";
 import { Quiz, Test } from "./components/Quiz";
 import { PracticeLab } from "./components/PracticeLab";
+import { VideoLesson } from "./components/VideoLesson";
 import {
   ArrowRight,
   ArrowLeft,
@@ -820,6 +821,7 @@ export default function App() {
                         ))}
                       </div>
                     </section>
+                    <VideoLesson key={id} lessonId={id} completed={state.tasks.includes(`${id}:video-sim`)} onComplete={() => setState((s) => ({ ...s, tasks: [...new Set([...s.tasks, `${id}:video-sim`])] }))} />
                     <section id="example" className="reading">
                       <span className="eyebrow">02 · 案例演示</span>
                       <h2>把知识放进真实任务</h2>
@@ -956,6 +958,7 @@ export default function App() {
                     {[
                       ["objectives", "学习目标"],
                       ["concepts", "知识讲解"],
+                      ...(id === "02-04" ? [["video-knowledge", "视频知识点"], ["video-frames", "重点画面"], ["video-practical", "视频实操"]] : []),
                       ["example", "案例演示"],
                       ["practice", "动手实践"],
                       ["interact", "互动练习"],

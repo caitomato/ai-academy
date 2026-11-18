@@ -10,13 +10,14 @@ test("learning, wrong answers, persistence, tests and exam", async ({
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("./");
   await expect(
-    page.getByRole("heading", { name: "把好奇心，变成新能力." }),
+    page.getByRole("heading", { name: "从零开始，学会使用 AI" }),
   ).toBeVisible();
   await page.screenshot({
     path: "test-results/home-desktop.png",
     fullPage: true,
+    animations: "disabled",
   });
-  await page.getByRole("link", { name: "开启学习之旅" }).click();
+  await page.getByRole("link", { name: "开始第一课" }).click();
   await expect(
     page.getByRole("heading", { name: "AI 学习路线概述", exact: true }),
   ).toBeVisible();
@@ -27,7 +28,7 @@ test("learning, wrong answers, persistence, tests and exam", async ({
   const first = page.locator("#interact .quiz-card").first();
   await first.locator("input[type=radio]").nth(1).check();
   await first.getByRole("button", { name: "提交答案" }).click();
-  await expect(first.locator(".feedback")).toContainText("再想一想");
+  await expect(first.locator(".feedback")).toContainText("答案有误");
   await page.reload();
   await expect(page.getByLabel("记录你的结果与发现")).toHaveValue(
     "我的目标：做一张学习卡片。",
@@ -97,6 +98,7 @@ test("mobile navigation, search, all chapters and refresh under a subdirectory",
   await page.screenshot({
     path: "test-results/home-mobile.png",
     fullPage: true,
+    animations: "disabled",
   });
   await page.getByRole("button", { name: "打开导航" }).click();
   await page
@@ -113,6 +115,7 @@ test("mobile navigation, search, all chapters and refresh under a subdirectory",
   await page.screenshot({
     path: "test-results/lesson-mobile.png",
     fullPage: true,
+    animations: "disabled",
   });
   expect(
     await page.evaluate(
@@ -137,4 +140,46 @@ test("malformed local storage is not silently overwritten", async ({
   expect(
     await page.evaluate(() => localStorage.getItem("ai-academy.progress.v1")),
   ).toBe("{broken");
+});
+
+test("reading layout respects reduced motion and keeps controls accessible", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("./#lesson/01-02");
+  await expect(page.locator(".reading").first()).toBeVisible();
+  expect(
+    await page
+      .locator(".page-content")
+      .evaluate((el) => getComputedStyle(el).animationName),
+  ).toBe("none");
+  expect(
+    await page
+      .locator(".reading p")
+      .first()
+      .evaluate((el) => parseFloat(getComputedStyle(el).fontSize)),
+  ).toBeGreaterThanOrEqual(16);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: "test-results/lesson-desktop.png",
+    fullPage: true,
+    animations: "disabled",
+  });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.getByRole("button", { name: "打开导航" }).click();
+  await expect(page.locator(".sidebar")).toHaveClass(/open/);
+  await page
+    .getByRole("button", { name: "关闭导航", exact: true })
+    .last()
+    .click();
+  await expect(page.locator(".sidebar")).not.toHaveClass(/open/);
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
 });

@@ -99,7 +99,7 @@ export function Feedback({ q, correct }: { q: Question; correct: boolean }) {
       className={`feedback ${correct ? "correct" : "incorrect"}`}
       role="status"
     >
-      <strong>{correct ? "✓ 回答正确" : "再想一想，学习就发生在这里"}</strong>
+      <strong>{correct ? "✓ 回答正确" : "答案有误，看看下面的解析"}</strong>
       <p>正确答案：{q.answer.join(q.type === "order" ? " → " : "；")}</p>
       <p>{q.explanation}</p>
     </div>
@@ -185,7 +185,7 @@ export function Test({
     <section className="test-section">
       <div className="section-heading">
         <div>
-          <span className="eyebrow">CHECK YOUR UNDERSTANDING</span>
+          <span className="eyebrow">检查理解</span>
           <h2>{title}</h2>
         </div>
         <span className="tag">{items.length} 题 · 达到 80 分即掌握</span>
@@ -252,9 +252,7 @@ export function Test({
           <strong>
             {result} <small>分</small>
           </strong>
-          <h3>
-            {result >= 80 ? "已掌握，继续向前！" : "先复习错题，再试一次"}
-          </h3>
+          <h3>{result >= 80 ? "本次测试已掌握" : "先复习错题，再试一次"}</h3>
           <p>错题已加入错题本。可以查看上方逐题解析。</p>
           <button
             className="secondary"

@@ -42,13 +42,13 @@ def validate(source):
                 if q['id'] in questions or q['lessonId'] != lid:
                     raise ValueError('Question ID mismatch: ' + q['id'])
                 questions.add(q['id'])
-                if q['type'] not in ('single', 'multiple', 'boolean', 'fill', 'code', 'order'):
+                if q['type'] not in ('single', 'multiple', 'boolean', 'fill', 'code', 'order', 'prediction', 'troubleshoot', 'scenario'):
                     raise ValueError('Unknown question type')
                 if not all(q.get(k) for k in ('prompt', 'answer', 'explanation')):
                     raise ValueError('Missing answer or explanation')
                 if q['type'] != 'fill' and not set(q['answer']) <= set(q['options']):
                     raise ValueError('Answer outside options')
-                if q['type'] in ('single', 'boolean', 'code') and len(q['answer']) != 1:
+                if q['type'] in ('single', 'boolean', 'code', 'prediction', 'troubleshoot', 'scenario') and len(q['answer']) != 1:
                     raise ValueError('Single choice must have one answer')
                 if q['type'] == 'order' and sorted(q['answer']) != sorted(q['options']):
                     raise ValueError('Order answer must include all options')
@@ -58,6 +58,36 @@ def validate(source):
                     raise ValueError('Missing lab resource: ' + href)
             if lesson.get('experience', {}).get('kind') == 'node-project' and not (source / 'labs/study-timer.zip').is_file():
                 raise ValueError('Node project download is missing')
+    graph = {l['id']: l.get('prerequisites', []) for c in chapters for l in c['lessons']}
+    def visit(lid, path):
+        if lid in path:
+            raise ValueError('Cyclic prerequisites: ' + lid)
+        for prerequisite in graph[lid]:
+            if prerequisite not in graph:
+                raise ValueError('Unknown prerequisite: ' + prerequisite)
+            visit(prerequisite, path | {lid})
+    for lid in graph:
+        visit(lid, set())
+    for chapter in chapters:
+        for lesson in chapter['lessons']:
+            if lesson.get('developmentStatus') not in (None, 'reviewed', 'needs-expansion'):
+                raise ValueError('Unknown development status')
+            lab = lesson.get('decisionLab')
+            if lab:
+                if not lab.get('title') or not lab.get('introduction') or not lab.get('stages'):
+                    raise ValueError('Incomplete decision lab')
+                for stage in lab['stages']:
+                    options = stage.get('options', [])
+                    if not stage.get('title') or not stage.get('context') or len(options) < 2:
+                        raise ValueError('Incomplete decision stage')
+                    if sum(o.get('correct') is True for o in options) != 1:
+                        raise ValueError('Decision stage needs one correct outcome')
+                    if any(not o.get('label') or not o.get('result') for o in options):
+                        raise ValueError('Decision feedback missing')
+            for question in lesson['questions'] + lesson['test']:
+                explanations = question.get('optionExplanations')
+                if explanations and set(explanations) != set(question['options']):
+                    raise ValueError('Incomplete option explanations')
     migrations = json.loads((source / 'migrations.json').read_text(encoding='utf-8-sig'))
     for kind, ids in [('lessonIds', lessons), ('questionIds', questions)]:
         for old, new in migrations[kind].items():

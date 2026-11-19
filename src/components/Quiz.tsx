@@ -9,6 +9,9 @@ const names = {
   fill: "填空题",
   code: "代码阅读",
   order: "步骤排序",
+  prediction: "运行结果预测",
+  troubleshoot: "故障排查",
+  scenario: "场景分析",
 };
 export function AnswerInput({
   q,
@@ -102,6 +105,7 @@ export function Feedback({ q, correct }: { q: Question; correct: boolean }) {
       <strong>{correct ? "✓ 回答正确" : "答案有误，看看下面的解析"}</strong>
       <p>正确答案：{q.answer.join(q.type === "order" ? " → " : "；")}</p>
       <p>{q.explanation}</p>
+      {q.optionExplanations && <details><summary>逐项理解选项</summary><ul>{q.options.map((option) => <li key={option}><strong>{option}</strong>：{q.optionExplanations?.[option]}</li>)}</ul></details>}
     </div>
   );
 }

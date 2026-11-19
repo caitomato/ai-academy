@@ -14,7 +14,7 @@ describe("curriculum contract", () => {
       expect(l.example.length).toBeGreaterThan(20);
       expect(l.steps.length).toBe(4);
     }
-    expect(new Set(questions.map((q) => q.type)).size).toBe(6);
+    expect(new Set(questions.map((q) => q.type)).size).toBe(9);
   });
   it("accepts all supplied answer keys and rejects incomplete answers", () => {
     for (const q of questions) {

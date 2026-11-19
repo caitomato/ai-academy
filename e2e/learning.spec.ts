@@ -10,7 +10,7 @@ test("learning, wrong answers, persistence, tests and exam", async ({
   page.on("pageerror", (e) => errors.push(e.message));
   await page.goto("./");
   await expect(
-    page.getByRole("heading", { name: "从零开始，学会使用 AI" }),
+    page.getByRole("heading", { name: "从零开始，系统掌握人工智能。" }),
   ).toBeVisible();
   await page.screenshot({
     path: "test-results/home-desktop.png",

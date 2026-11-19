@@ -1,3 +1,4 @@
+@import "tailwindcss";
 /* Design direction: a quiet learning desk, with chapter tabs and a real lesson sheet.
    Craft workflow: unslop by Damir Sokolovsky (@heydamir), CC BY 4.0.
    https://github.com/heydamir/unslop */
@@ -1963,3 +1964,6 @@ pre {
 @media (max-width: 650px) { .project-explorer, .role-diagram { grid-template-columns: minmax(0, 1fr); } .file-tree { gap: .4rem; } .support-lane { border-left: 0; border-top: 1px solid #bdccb5; padding: 1rem 0 0; } .scenario-picker { grid-template-columns: 1fr; } .workflow-rail > li { grid-template-columns: 1.7rem minmax(0, 1fr); gap: .5rem; } .workflow-rail dl { grid-template-columns: 1fr; gap: .3rem; } .workflow-rail dd { margin-bottom: .75rem; } .role-diagram { padding: 1.25rem; } }
 .lesson-milestones { max-width: 46rem; margin-top: 1.5rem; }
 .lesson-milestones > span { display: block; font-size: .85rem; color: #566353; line-height: 1.7; margin-bottom: .5rem; }
+.decision-state { padding: 1.5rem; border-left: 3px solid #37634b; background: #eef2e9; }
+.decision-state button { justify-content: flex-start; text-align: left; }
+button[aria-pressed=true] { outline: 2px solid #37634b; outline-offset: 2px; }

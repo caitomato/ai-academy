@@ -241,7 +241,10 @@ class Academy:
             verify_directory(self.courses / pinned['version'], pinned_manifest)
             return dict(status='session-pinned', version=pinned['version'], path=str(self.courses / pinned['version']))
         cache_file = self.cache / 'latest-manifest.json'
-        cache = read_json(cache_file, {})
+        try:
+            cache = read_json(cache_file, {})
+        except (ValueError, OSError):
+            cache = {}
         try:
             if not force and time.time() - cache.get('checkedAt', 0) < 21600:
                 manifest = cache['manifest']
@@ -265,11 +268,11 @@ class Academy:
             changed_lessons = set(lid for item in manifest['files'] if item['path'] in changes for lid in item.get('lessonIds', []))
             report = dict(currentVersion=current.get('version'), latestVersion=manifest['version'], changelog=manifest['changelog'], changedFiles=len(changes), affectedLessons=len(changed_lessons), message='检测到 AI Academy 有新版本。' if current.get('version') != manifest['version'] else '课程已是最新版本。')
             if pinned and manifest['version'] != pinned['version']:
-                return dict(status='deferred-until-new-session', version=pinned['version'], **report)
+                return dict(status='deferred-until-new-session', version=pinned['version'], path=str(self.courses / pinned['version']), **report)
             if manifest.get('requiresConfirmation') and current.get('version') != manifest['version'] and not accept_major:
                 if current:
                     atomic_json(pinned_file, dict(version=current['version']))
-                return dict(status='confirmation-required', **report)
+                return dict(status='confirmation-required', version=current.get('version'), path=str(self.courses / current['version']) if current else None, **report)
             downloaded = self.install(manifest)
             atomic_json(pinned_file, dict(version=manifest['version']))
             return dict(status='updated' if downloaded else 'current', version=manifest['version'], path=str(self.courses / manifest['version']), downloaded=downloaded, **report)

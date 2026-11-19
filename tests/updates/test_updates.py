@@ -1,6 +1,7 @@
 import importlib.util
 import json
 import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -113,6 +114,13 @@ class UpdateContract(unittest.TestCase):
         self.assertEqual(response['version'], '1.0.0')
         self.assertIn('Bootstrap upgrade required', response['error'])
 
+    def test_broken_check_cache_still_allows_offline_learning(self):
+        user = self.user('cache-failure')
+        user.check('one')
+        (user.cache / 'latest-manifest.json').write_text('{broken', encoding='utf-8')
+        self.server.offline = True
+        self.assertEqual(user.check('two')['version'], '1.0.0')
+
     def test_individual_hash_failure_even_when_zip_hash_matches(self):
         user = self.user('integrity')
         archive = self.root / 'changed.zip'
@@ -198,6 +206,14 @@ class UpdateContract(unittest.TestCase):
         self.assertFalse((home / 'state').exists())
         before = (home / 'bootstrap/current.json').read_bytes()
         installer.install(ROOT / 'bootstrap', home, 'codex', skills)
+        self.assertEqual((home / 'bootstrap/current.json').read_bytes(), before)
+        result = subprocess.check_output([sys.executable, str(home / 'bootstrap/launch.py'), 'status'])
+        self.assertEqual(json.loads(result)['home'], str(home.resolve()))
+        broken = self.root / 'broken-core'
+        shutil.copytree(ROOT / 'bootstrap', broken)
+        (broken / 'scripts/state.py').unlink()
+        with self.assertRaises(ValueError):
+            installer.install(broken, home, 'codex', skills, '1.1.0')
         self.assertEqual((home / 'bootstrap/current.json').read_bytes(), before)
 
 

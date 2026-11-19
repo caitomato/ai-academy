@@ -8,6 +8,8 @@
 
 网页讲义中的 ./practice-kit/ 资源在本地课程包中对应 labs/；按当前课程版本目录解析。开始实验前复制所需材料到学生指定的练习目录，不让学生直接修改 courses/ 中的发布文件。
 
+包含 experience 的课程使用其中的 files、fields、walkthrough 和 troubleshooting 进行项目教学。Node 项目的原始练习包在 labs/study-timer.zip：先讲清文件职责，再按 walkthrough 的操作、预期、原因和排障逐步练习。课程设计原则见 teaching/course-design.md。环境验收可复制 labs/environment-check.md 到学生练习目录填写。
+
 章节考试从对应章节 test 题中不重复抽取 12 题；不足 12 题时使用全部题目。单选、多选与排序按完整答案评分；填空去除首尾空白后比较。每题等权，最终百分制。反馈必须说明错误原因和复练建议。
 
 学生进度、掌握度、错题和笔记分别保存在 state 下。模拟练习与本机实操分开记录。不要上传学生记录或私有文件。课程 ID 更名时使用 migrations.json 解析旧 ID，不删除旧记录。

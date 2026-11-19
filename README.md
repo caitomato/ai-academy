@@ -4,7 +4,7 @@
 
 中央课程库位于 `content/`，网页与 Codex / Claude Code 本地导师共用同一教材。维护者编辑一次，通过正式课程 Tag 发布版本；学生的新学习会话自动检查更新，离线使用缓存，学习记录独立保存。课程版本、Bootstrap 安装、发布及回滚说明见 [UPDATES.md](UPDATES.md)。
 
-课程编辑后运行 `npm run content:build`，再运行测试和构建。生产网页使用最新正式 Release 的课程包，UI 提交不会升级课程版本。旧课程编辑脚本暂为并行迁移保留，不参与正式发布链；新教材仅编辑 `content/`。
+课程编辑后运行 `npm run content:build`，再运行测试和构建。生产网页使用最新正式 Release 的课程包，UI 提交不会升级课程版本。旧课程编辑脚本保留其原有改动供参考，但兼容入口已改为只读取 `content/`，不会再从旧种子覆盖中央教材。
 
 ## 本地运行
 
@@ -36,13 +36,9 @@ Vite 使用 `base: './'`，页面导航使用 Hash 路由，例如 `/ai-academy/
 - `src/components/Quiz.tsx`：六类题目与统一测试组件。
 - `src/progress.ts`：评分、抽题、备份验证和连续学习统计。
 - `src/App.tsx`：仪表盘、课程、考试、错题与学习档案。
-- `content/chapters/`：中央课程发布源；`src/data/curriculum/` 是其网页投影。`scripts/course-seeds.txt` 及配套编辑脚本由 `scripts/build-curriculum.py` 导出到这两处；直接编辑中央 JSON 后不要再用旧编辑源覆盖。发布构建使用 `scripts/build_content.py`。
-- `scripts/video_enrichment.py`：视频主题的原创实操与情境题编辑源，由生成器合并到课程。运行 `python scripts/build-curriculum.py` 更新 JSON；保留原有课号，新增课程追加在对应章末。
-- `scripts/operation_guides.py`：具体操作、命令与材料链接；Claude Code 安装内容按产品要求排除。
+- `content/chapters/`：中央课程发布源；`src/data/curriculum/` 是其网页投影。`scripts/build_content.py` 和兼容入口 `scripts/build-curriculum.py` 只读取中央数据并生成网页投影。旧种子与编辑函数保留为迁移参考，不再作为教材输入。
 - `src/components/PracticeLab.tsx`：可复制任务卡、分步操作、验收与可展开故障说明。
 - `src/components/NodeProject.tsx`：独立项目地图、配置探索、命令分类和六种启动情境；仅浏览器模拟。
-- `scripts/node_course.py`：02-04 原创课程编辑源，保留课号及七个题号。
-- `scripts/course_quality.py` 与 `scripts/concept-checks.txt`：九章教学整理与逐课概念辨析题。
 - `scripts/audit-curriculum.py`：扫描课程及构建产物，内部报告写入已忽略的 materials/reports/。
 - `COURSE-DESIGN.md`：统一教学契约、按知识类型设计实验的方法及发布验收标准。
 - `public/practice-kit/`：虚构笔记、CSV、公告页、知识库、技能样例与分镜模板，可直接下载使用。

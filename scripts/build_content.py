@@ -56,6 +56,8 @@ def validate(source):
                 href = resource['href']
                 if href.startswith('./practice-kit/') and not (source / 'labs' / href.split('./practice-kit/', 1)[1]).is_file():
                     raise ValueError('Missing lab resource: ' + href)
+            if lesson.get('experience', {}).get('kind') == 'node-project' and not (source / 'labs/study-timer.zip').is_file():
+                raise ValueError('Node project download is missing')
     migrations = json.loads((source / 'migrations.json').read_text(encoding='utf-8-sig'))
     for kind, ids in [('lessonIds', lessons), ('questionIds', questions)]:
         for old, new in migrations[kind].items():

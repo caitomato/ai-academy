@@ -1,18 +1,19 @@
 {
-  "version": "1.1.0",
+  "version": "1.1.1",
   "releaseDate": "2026-11-19",
   "minBootstrapVersion": "1.0.0",
   "requiresConfirmation": false,
   "changelog": [
-    "补充 Python 函数的双案例验收与 return/print 区分",
-    "增加本地环境验收模板和教学反馈规则",
-    "强化模拟练习与真实实验的记录边界"
+    "合并 Node 项目交互课程与中央课程发布",
+    "将计时器实验包和统一课程设计指南纳入本地课程包",
+    "统一旧构建入口，避免覆盖中央教材"
   ],
   "added": [],
   "modified": [
-    "06-10 Python 函数"
+    "02-04 Node.js 项目实操"
   ],
   "fixed": [
-    "教学反馈保留预测、实际结果及未验证项"
+    "网页下载文件与本地实验包保持一致",
+    "保留 Python 函数课程 1.1.0 改进"
   ]
 }

@@ -6,7 +6,7 @@
 
 编辑 `content/`，运行 `python scripts/build_content.py` 生成网页课程、实验下载与轻量 Bootstrap ZIP，再运行 `npm test`、`npm run build`、`npm run test:e2e`。运行 `python -m unittest discover -s tests/updates -v` 验证更新契约。
 
-`src/data/curriculum/`、`public/practice-kit/` 是生成目录，不独立编辑。旧 `scripts/build-curriculum.py` 和旧编辑脚本暂时保留，供同时进行的课程迁移收尾；不在任何正式构建、发布链中执行。迁移后的正式发布只读取 content/，不要维护两套教材。旧编辑改动须审阅后单向导入 content/；正式编辑完成迁移后可移除旧工具。
+`src/data/curriculum/`、`public/practice-kit/` 是生成目录，不独立编辑。`scripts/build-curriculum.py` 兼容入口已改为调用中央构建器。旧种子和编辑函数保留原有改动作为参考，不再由任何构建入口读取；唯一有效教材输入是 content/。
 
 ## 正式课程发布
 

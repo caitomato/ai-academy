@@ -41,6 +41,12 @@ class UpdateContract(unittest.TestCase):
         self.root = Path(self.tmp.name)
         self.source = self.root / 'content'
         shutil.copytree(ROOT / 'content', self.source)
+        # Test fixtures model an ordinary update independently of the next real
+        # release's confirmation policy; the explicit major-update test changes it.
+        release_file = self.source / 'release.json'
+        release = json.loads(release_file.read_text(encoding='utf-8-sig'))
+        release['requiresConfirmation'] = False
+        release_file.write_bytes(encode(release))
         self.server = Server()
         self.v1 = self.server.publish(self.source, self.root / 'v1', '1.0.0')
 

@@ -1,35 +1,33 @@
 {
   "product": "AI Academy",
   "channel": "stable",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "releaseDate": "2026-11-19",
-  "minBootstrapVersion": "1.0.0",
+  "minBootstrapVersion": "2.0.0",
   "requiresConfirmation": true,
   "changelog": [
-    "第一章七节完整决策实验与前置依赖",
-    "扩展九种题型，逐项解析选项",
-    "增加页面学习时长、推荐与薄弱点",
-    "区分已审核样板与专用实验待完善课程"
+    "新增本地导师入学、续学、评分、实操记录和档案备份恢复",
+    "全部九章 90 课按课加载，保留课程 ID 和 630 个题号",
+    "包含 1.3.0 第一章决策实验、前置依赖和九种题型"
   ],
   "added": [
-    "第一章十四个交互决策",
-    "课程页面学习时长与九种题型"
+    "四条学习路线、三级难度与 Local School 教学入口",
+    "按课加载的讲义、题库、路线和待完善清单"
   ],
   "modified": [
-    "第一章全部课程",
-    "首页与学习档案"
+    "网页和本地导师共用最新中央课程包"
   ],
   "fixed": [
-    "保留旧题号、旧备份和中央课程更新兼容性"
+    "Windows 安装校验、档案恢复与卸载归属验证"
   ],
-  "packageUrl": "https://github.com/caitomato/ai-academy/releases/download/courses-v1.3.0/courses-1.3.0.zip",
-  "sha256": "e14ffb63d9a67d640d7edf2615cc2ac2da752c8e0edf7a7f5a540598f1682ab3",
-  "packageSize": 142744,
+  "packageUrl": "https://github.com/caitomato/ai-academy/releases/download/courses-v2.0.0/courses-2.0.0.zip",
+  "sha256": "3375ce3de558ff9982e74c6061f74ed59aafbb401cc92b78131814594405e8a7",
+  "packageSize": 633275,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "bcdb0722b60c82196afad931a81bf595d15f5c0b2ca3d6103893cf7e8c720b37",
-      "size": 1507,
+      "sha256": "38dc5894b6571465fa903aa9873ce02e649d84a1f4377fd671b31775c55cd377",
+      "size": 1948,
       "lessonIds": []
     },
     {
@@ -282,15 +280,1677 @@
       "lessonIds": []
     },
     {
+      "path": "teaching/coverage.json",
+      "sha256": "19de24b248f1f1d64ba5bd359e705e3d10a6f083cc5690bd3204a29165e895b0",
+      "size": 20876,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/curriculum-map.md",
+      "sha256": "1844faa5a8356cdef647d58ae011c4cf58ba8df148aa1320e5af45e6a033a993",
+      "size": 296,
+      "lessonIds": []
+    },
+    {
       "path": "teaching/guide.md",
       "sha256": "c5be421664f09b90cd8c4fa1ed1b9f6f62f800791ad97e720e21308135a6803b",
       "size": 2499,
       "lessonIds": []
     },
     {
+      "path": "teaching/lesson-index.json",
+      "sha256": "4555e6ad801f881dffc1bc7395807adae5a44f2f4a2870dd2c69c964b6496c3a",
+      "size": 50948,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lesson-index.md",
+      "sha256": "6d010c6ce04c2707b779b02e396b85effaa249e91d5d50becfb2aa26d94d9f6a",
+      "size": 6020,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-01.assessment.json",
+      "sha256": "0611449673a764d876a6cc8a55c9d8ea7775fdd5c39bd93e21e2bc52f12d4f3e",
+      "size": 12478,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-01.json",
+      "sha256": "986be950df8fac8b76c5912c85f54fa05cdab98a62aa2cc1dc94b536b892efa1",
+      "size": 3556,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-01.md",
+      "sha256": "e154dd1d83575e1188d2a195ca895d0a6b8e41d99259f847377fb36395ab1fe4",
+      "size": 3205,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-02.assessment.json",
+      "sha256": "b3459d13e985319f8b878ced7a66f115b0843a53ea20019b724266f51d05864b",
+      "size": 13335,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-02.json",
+      "sha256": "afc8109f1c55cee693057fad1024e2561fd3ac5ac38d0dff83bb8e582328cae7",
+      "size": 4088,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-02.md",
+      "sha256": "0b5e66ed7101eafdddd285bab5b65764f7775af2ed7d53439495d80690fb5c20",
+      "size": 3669,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-03.assessment.json",
+      "sha256": "b0594d7472b17d87acf0789ca74092e0be6bd8ace62518f8536a4f549863f0a6",
+      "size": 12312,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-03.json",
+      "sha256": "9a87206f2761250fa1273d01252694867e364115d019d0bf6d31039395245af9",
+      "size": 3665,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-03.md",
+      "sha256": "842d00072e18e6eb3c1ed3054c7f2996009c72ee5a7403b511ce6e627eb57f53",
+      "size": 3270,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-04.assessment.json",
+      "sha256": "fdfd13ef6c41e81efcdd5e83f941626f34b19c8254b6f4195122658eedbe4111",
+      "size": 13628,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-04.json",
+      "sha256": "1550c171aad9907089f5ac67094f04569b08a5fd1087bf3fb7dc4007d11f2fe1",
+      "size": 3795,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-04.md",
+      "sha256": "741abd42ab96d09c294e6c4eec1ccf7dc06394edfd65a0a4a385f6bad091f464",
+      "size": 3390,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-05.assessment.json",
+      "sha256": "428a15254b50c28fedf909f864ed879ce215b8939e2ead66816a75ad94e51cb3",
+      "size": 13045,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-05.json",
+      "sha256": "297dbc8e167d811b0bda9252aa40b2ba74afe651c03f7c78948879bcca3547db",
+      "size": 3709,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-05.md",
+      "sha256": "a17297276dc609dba67180ae357fe3e7f9f0eb82dac0e872339258812097288e",
+      "size": 3345,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-06.assessment.json",
+      "sha256": "a6153a93c32b4e8bbf33f18a701abc95e2080853244b8daabb98f03bf8849fd4",
+      "size": 13557,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-06.json",
+      "sha256": "f42cf47b00afd93eb7c00046fe4354bb79d4b9b2e5657ec5188c357cb0eb7c7a",
+      "size": 3699,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-06.md",
+      "sha256": "0d9867216f1a96309bc0376e372e71535b235184d2cdec16e226f58c659deb7b",
+      "size": 3294,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-07.assessment.json",
+      "sha256": "9797ff956b7f991771d44ed7766f1a4738a2253344984c2f8756bc4424337cfe",
+      "size": 13482,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-07.json",
+      "sha256": "b6fd84e4a559c4d0648baf1ed6b8947fa5f645195834c85116e9e08bdad40826",
+      "size": 3913,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter01/01-07.md",
+      "sha256": "b1f8bbbf750a44d734c35c299f674151654646372fb637e0042f154e4d26a77c",
+      "size": 3498,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-01.assessment.json",
+      "sha256": "3b16f52f80f4abf7acc14b7e7e84f02fe9d5426f5e7679a8b4bd83d3b716922f",
+      "size": 6030,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-01.json",
+      "sha256": "41176dbf93790a32a90ab1524e3c5de03b8d58ad167028ef982625cfbe4aee94",
+      "size": 3700,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-01.md",
+      "sha256": "6c1db5ac86a8846fb11d51eea003e6ce43f692dcf899067615c11bebad73e669",
+      "size": 2956,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-02.assessment.json",
+      "sha256": "fc34d316442dfb3ddea1c2f26a0aff090997b8decfeee32768a5d886171c2517",
+      "size": 5644,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-02.json",
+      "sha256": "dd10a46c4644233ebc0ff8ac4c95f48bc47665d8850988f73fb431115418a056",
+      "size": 4975,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-02.md",
+      "sha256": "fc60e28e51494a5564046e780c64fa3d375c5022d4a01540661ad4d7812fb1bf",
+      "size": 3920,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-03.assessment.json",
+      "sha256": "8b777c73dbb52a528f8392d68dfc4244c95816078762d13a9d094732fee64954",
+      "size": 5532,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-03.json",
+      "sha256": "60ebe018b7de5e0e090183592c5d107dcdfea7c0874400a2435ee5ee405a261f",
+      "size": 5944,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-03.md",
+      "sha256": "f9864603d346cd367702e1e17057f683b2a28d9aaf884b1e2cfca216796f28e9",
+      "size": 4764,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-04.assessment.json",
+      "sha256": "acad8b22be0dbfc9421bdc0e5376db2c12c1ae67c6a8fcb207c993601f58817f",
+      "size": 4718,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-04.json",
+      "sha256": "1a6d455f61e8639b60797d75d708f7aefd98dcaf1dd2d44127179d04cdcda116",
+      "size": 14169,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-04.md",
+      "sha256": "62cc2fe4b5b69ecd8bf4e4dc146b8d498765b15083794fa0c614c14b3c1db8b1",
+      "size": 12634,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-05.assessment.json",
+      "sha256": "0308197a1091de55a2525371661dc91213ffcd479ac8db955d23a63a85545d0d",
+      "size": 5792,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-05.json",
+      "sha256": "84cc043b9b2783e2396f7bfc31dd9ffaa6cd5f4600f87d2d920960d661975cf9",
+      "size": 4390,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-05.md",
+      "sha256": "6930e2cab78ce263182d1aa36b037abc1a681c500b89df8157ce11d31999012d",
+      "size": 3327,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-06.assessment.json",
+      "sha256": "efe493059eb8cdea19353e4ce4add81c7d2c305bb64435e4589a837271e368dd",
+      "size": 5582,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-06.json",
+      "sha256": "348c4aae9868c0ca97e8094c7da2f2550a43713eeaa49284d7807604e57f45c6",
+      "size": 3703,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-06.md",
+      "sha256": "6d0dd0137720753429edd7fd84dd390b10e64d33ccc2ae5b6fb22e7cc7c996ab",
+      "size": 2791,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-07.assessment.json",
+      "sha256": "5a05de16bb5f88c9a7dacb848bc551714b03a9a39efe4073956267db74d1705c",
+      "size": 5838,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-07.json",
+      "sha256": "c754149c776135e3ec59cb3db946c1bc0d8ab6af7c5ed647d436a7605ff1ee97",
+      "size": 4800,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-07.md",
+      "sha256": "2185779b199c44411c9cd35d1ace86ca44714c0abe3efa2485634aaa43ec2809",
+      "size": 3921,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-08.assessment.json",
+      "sha256": "36b6d5b2b1b726582d63ba852e27293b180ec43b03660696179b48b9ef4f5e9a",
+      "size": 5807,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-08.json",
+      "sha256": "158b30f1bd47f0226f52f267cedc5accc0fce525b7570ca01dc1a19aa8c32fa3",
+      "size": 3611,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-08.md",
+      "sha256": "1118a22b24c6dee2978dfaa9aeb919d958df171a4d39780e9fdc9ba1cbf407d7",
+      "size": 2864,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-09.assessment.json",
+      "sha256": "75341216e0886cbedeef0dbb47209aeef42452caadcda2c29b00b217bd13d48c",
+      "size": 6170,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-09.json",
+      "sha256": "96de13d4942ef375a953f491d38d5fdafc3bcf679c44c530b1465a033e88e040",
+      "size": 3623,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-09.md",
+      "sha256": "46134a444fdb7ab3c333151a815e94512a7b4eed10c9f61c020b34f40a31db41",
+      "size": 2712,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-10.assessment.json",
+      "sha256": "c7bd24acbae3a4be7268ee402ca5f25c39e3e405e2fc2a4d273ed6ad6330792c",
+      "size": 5965,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-10.json",
+      "sha256": "18c493bafa52902aa2c2e9723e37167a75f13334efbbc8eff8c9159fd4ef9ef9",
+      "size": 4831,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-10.md",
+      "sha256": "ca1f0c03d5494631e5f3566d53df551cbaf59a2d46cb7739626fc835ae082dbb",
+      "size": 3944,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-11.assessment.json",
+      "sha256": "431632457af283a457e860d6f8531171da1843033aba87a157da3d1d9c58aafb",
+      "size": 6314,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-11.json",
+      "sha256": "9ac3a1d838d633c500414ac158b28806f7c32bf1b742d9241b5e86aad61c1b3f",
+      "size": 6081,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-11.md",
+      "sha256": "b2770bd989761b227aea83647edd9f651b756c443478e92c04487724d8888409",
+      "size": 5073,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-12.assessment.json",
+      "sha256": "26290ed1495517890b79992430224c15614bec8284d573752eae7d38a5f0ba16",
+      "size": 5950,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-12.json",
+      "sha256": "32de2c19d9ef505913ea8f0009f4afae53d73d86507dd5a2f2beebca132e3181",
+      "size": 4936,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-12.md",
+      "sha256": "912eae38478383caaf0a9c16927caa71d63c08b76841d54d4c80e7c652fe23a2",
+      "size": 4053,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-13.assessment.json",
+      "sha256": "ad9016dc72f60cd1c107eb7b8e9923b5c4fccf5973a65c6ce624e0fb4bbc95da",
+      "size": 6087,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-13.json",
+      "sha256": "895c86b9cf436bbabb06cc6abb5ae26db4b3c551fa53049878020ee2f4d18ae8",
+      "size": 3658,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter02/02-13.md",
+      "sha256": "e28b8d05995919b4d7cc155d373ca8a3da065370a1a9f4ad485e29e25365065f",
+      "size": 2910,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-01.assessment.json",
+      "sha256": "ee19e944dd64c0b7a571260eeed791b1ef967458820768e59f7bb56c9373a140",
+      "size": 5619,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-01.json",
+      "sha256": "130ebc5f8a771f9b34cf031ffe14322104b199ce7d3af5f9f2247c7857f3031a",
+      "size": 4473,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-01.md",
+      "sha256": "b9e2b2ab8d2773ccacf4344fd1fe23fff85040c03f4836c45e433117835a64e3",
+      "size": 3519,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-02.assessment.json",
+      "sha256": "900c01ffbdbe87026c7dbb845fc06a845531f27eb25a88e14510c5c075d607d3",
+      "size": 5620,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-02.json",
+      "sha256": "6c69aa2ec99341447149de51e57764e847df5d306077a02f8e3c94ceb00ebc9d",
+      "size": 5426,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-02.md",
+      "sha256": "9250a59d86076670e05f060d8fd9d1b05ed8f2e8bf7a7263573feba8a50558f3",
+      "size": 4493,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-03.assessment.json",
+      "sha256": "ee586d1a7e1954dd7badf6236cdc8c58903f116dd2addf403f47aab0ac73ad54",
+      "size": 5972,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-03.json",
+      "sha256": "9de1d5c5b82184c36b05b54f2101cda17f6d3f00c7f854411aaee6bfafa5c137",
+      "size": 4849,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-03.md",
+      "sha256": "ae1ea9a18b53c1c108f402185ee4bdbbf66c97cadb653e69c072b5e82884ee77",
+      "size": 3726,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-04.assessment.json",
+      "sha256": "7036754afc7ac9076b92868b446509cb8d76ae39cb17d1e2c785d36d10a80685",
+      "size": 5733,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-04.json",
+      "sha256": "9b4dfde8c5f2accc80a61e3e51dacf8debc8881bdb6af1a577b6c85579355804",
+      "size": 4485,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-04.md",
+      "sha256": "07145e38a39b844dc424f753dbbef79c3ea33373710b94cd94c6a4a2f783b144",
+      "size": 3664,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-05.assessment.json",
+      "sha256": "85a6aae2b2f0d362b4a0a9839474300736cdd240229ffb4146e43c3ee33d6f1f",
+      "size": 5585,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-05.json",
+      "sha256": "858fbbcb062b210baee8359efc91a3b72fed6068abf896e1fe6ffb85ae5cf39e",
+      "size": 4450,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-05.md",
+      "sha256": "b2b9ceb59e7082b03f2230ac404a637ed48916fb6ee503a21c643aadd6f5e536",
+      "size": 3490,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-06.assessment.json",
+      "sha256": "c3e5a9234d8dc99433185aa86651cd3b576061d1676ff9eb6fcc9a0c41d34cf5",
+      "size": 5968,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-06.json",
+      "sha256": "9e12b099ccbffa2ce9bec154d6be3aa2ef6363c12c30f162d20681301b0319ad",
+      "size": 4840,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-06.md",
+      "sha256": "39fbbd4bf16a2569018a2f541024a8328c33044a270be814bde0ac189c8032a9",
+      "size": 3684,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-07.assessment.json",
+      "sha256": "5f02f5fff89d0cacd2752ecafca4a26945ecc8b0d94273b7556f17dd703eb787",
+      "size": 5583,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-07.json",
+      "sha256": "afb8fa11c1b32db16714ee4bf396d42b00f894da261b550543656ab17bd9d874",
+      "size": 3737,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-07.md",
+      "sha256": "378cd457b426ffcd59b6eb7bcb69818762c3edd15e833c3c3cbf4e8f895ea8a8",
+      "size": 2823,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-08.assessment.json",
+      "sha256": "810944c6bf619c5a6b4faa6d2b67a3f2b2d82f413b059ce38f22a6d4fd587fa4",
+      "size": 5650,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-08.json",
+      "sha256": "4583fe0c6a85b1592ab4454223301bd62d360422c496f00e84b05d3ffebb2d9e",
+      "size": 3441,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-08.md",
+      "sha256": "f0127fd017a20baf432a3bd6b63251d1d59663b56a59bdab6abc3c13e4cedbfe",
+      "size": 2716,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-09.assessment.json",
+      "sha256": "43c91356917d11716c9a88334254f5a3a3587022ecadd5af771cfc58259a824a",
+      "size": 5771,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-09.json",
+      "sha256": "c84e68f60dd755b9def9d698a558865a0be14b1234a15a6321b152df041b5fc1",
+      "size": 3588,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-09.md",
+      "sha256": "b58a0989b0766ebf4e6c88d38997e10e8c7a092d812575c3441b169f8e78dbe2",
+      "size": 2820,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-10.assessment.json",
+      "sha256": "a7e66be49bc9643b762e04bb136594006df62c3199dec3313c14ca59172614ae",
+      "size": 6150,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-10.json",
+      "sha256": "6bc9e7629fc2b186c92ef77416b920e2af618bbc2b958f09c994d0cd08b834dc",
+      "size": 5064,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-10.md",
+      "sha256": "28e0abbceefa83ed71f8b507a51fddbfef6fbf6b51b798f855177096d3ccdca7",
+      "size": 3937,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-11.assessment.json",
+      "sha256": "dd7b060e14f54e9dc69b7f971b66b31d76b6bca26a3a9332054d6fbcea4439ce",
+      "size": 6022,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-11.json",
+      "sha256": "50094b5799053b2be3b63f669bb564d53df9d3bbc312a4e8ee39694993df59a8",
+      "size": 5387,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter03/03-11.md",
+      "sha256": "75bfb7362fb9f5ff90b89b32aea37073b0ed853af20ea8940a78a11115a7dec7",
+      "size": 4186,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-01.assessment.json",
+      "sha256": "2cbdfc6f1d4eb2b39c99c2f14815f9dadaaa7dc0de66df1610ae336fb6687617",
+      "size": 5600,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-01.json",
+      "sha256": "9f8fe2fb144a535756d737b63771cd68b73132f9a87d445c61c6e69773765aec",
+      "size": 3500,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-01.md",
+      "sha256": "8d0e42338735f1316b31d04bc1de634cf7e84c3a642544b54873640fa1216561",
+      "size": 2759,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-02.assessment.json",
+      "sha256": "f954b434015d499cdce869f99dd3a1750181138004d4acb441a807ba406ed0de",
+      "size": 5639,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-02.json",
+      "sha256": "9669399e4ea25c907ac6743c6468699df50247ab15be45bb584d4c2ba471f0c3",
+      "size": 3422,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-02.md",
+      "sha256": "85e5484ff195e58b7194e8a2c330b59411588d6c00d6134a2c1486ab5ce611af",
+      "size": 2661,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-03.assessment.json",
+      "sha256": "3b3f4de4cfc4acc7b220c2dc98e1cc710f486493c596e7f6d85f705475fe26bc",
+      "size": 5437,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-03.json",
+      "sha256": "72d30967c19b49fecff24f8133f3bec97ddff63691fea0f1829067055e0944d0",
+      "size": 3312,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-03.md",
+      "sha256": "af7dea07e2b749ba97d21696bcb2ed09a82cdb5eaa64a3f0daf13e96d5d0d427",
+      "size": 2578,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-04.assessment.json",
+      "sha256": "c1cbca93404dfc9e0f6bbc0ce6714acd15a52bbbb927a0133983bc4be54eb369",
+      "size": 5411,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-04.json",
+      "sha256": "5ca83e88e5339ab72f096be4909a1769c62fcf3e8cb1cb5df4095d7600e70cbf",
+      "size": 3452,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-04.md",
+      "sha256": "95e73735ecde32e4bcbd1143780439a4e41a84941045613563ce7a404487fb2d",
+      "size": 2712,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-05.assessment.json",
+      "sha256": "39b0fbd63ad3a3a17962a374ad9afe352cc5afdd97a33d5936e7f7500058443e",
+      "size": 5345,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-05.json",
+      "sha256": "efc8af006f309db4b7ae824903b571934fab8537736dc005cf8626aecfe89acf",
+      "size": 3396,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-05.md",
+      "sha256": "355b3be38bada0637566e379cb5343f2b018a248a861790b2f44f3b3c9de5bd6",
+      "size": 2653,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-06.assessment.json",
+      "sha256": "0c5c08451f58ee228976d7f1be228bb0326e6e812828dcc3fdc8cdb0b4a73d65",
+      "size": 5591,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-06.json",
+      "sha256": "29007d8461bbb3b6baaf5619ee9981bfe53d3075adc036c280aebb7145ae2f6a",
+      "size": 3467,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-06.md",
+      "sha256": "d6530622c6fd4bb0cab35fd99e95cf5139b4b10802b5cab52c7f915c23b13874",
+      "size": 2733,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-07.assessment.json",
+      "sha256": "8b7cb0618f7fef63f09f82484e1aaa8586ac0cc7b542c799e99e6c7d88bb9cd7",
+      "size": 5601,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-07.json",
+      "sha256": "e41b6bad5d9056ab9a74332ca8e244e18f1a936c7dd30b9751ef4c011110ddaf",
+      "size": 3577,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-07.md",
+      "sha256": "fc70de8ce6bb3021f3e69ee541ee0578b791d2e7788b28fd55fff25d0ed8efac",
+      "size": 2840,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-08.assessment.json",
+      "sha256": "14eb4d2a4afa6979b1db988bd542c968d2ddfeb35b9668dd5cc57fe4639b6724",
+      "size": 5990,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-08.json",
+      "sha256": "ce4328758d13aca404dd01b861d3089406048dae674d0d8a07619973acf567ee",
+      "size": 3556,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-08.md",
+      "sha256": "6c7a20c4d7d9cf18e5937dfd563f6461028256a9d3f93262a5b905a1b948a691",
+      "size": 2814,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-09.assessment.json",
+      "sha256": "a976a75f5292e9dbc5dfd2da3c5a8c0b2c6d96ffb108e00fed520c6990ceb3cc",
+      "size": 5951,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-09.json",
+      "sha256": "dafb856db30223973c3ea31e1307131a6cbf417755ff542ae657266e04942aad",
+      "size": 3589,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter04/04-09.md",
+      "sha256": "c1ff35b5f5022c0e5f1e24ec838326de4b04a10c9e26e35e02df0e3fbfb3afba",
+      "size": 2832,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-01.assessment.json",
+      "sha256": "72a16514cd90efc3d160510a144417471b83c8a920c5d0e23ab7e2bfd7a29544",
+      "size": 5924,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-01.json",
+      "sha256": "b7540cabe418d74a1d309eb4aee027322a9a9d68619071cee946a156f1faa240",
+      "size": 3561,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-01.md",
+      "sha256": "b5b39db4bbf54c57e161fcc12b4bfbe4bd11f13be683b05cf7a526d5f8521e1a",
+      "size": 2865,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-02.assessment.json",
+      "sha256": "81d7eb183c52326bf073b4d6dfdd9e7135a7a13fcc55110e993e55ab41e72695",
+      "size": 5732,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-02.json",
+      "sha256": "58a91f11bfe17abaf7f3dc994261e984c9987e704a5435a54e934d338a3cfa03",
+      "size": 3666,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-02.md",
+      "sha256": "a17273e258ee8fd4f8d8b8886efd80c954cfb515f32e4e89629c7da54747c647",
+      "size": 2756,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-03.assessment.json",
+      "sha256": "0633c326429a4d656ff281d9ed50c457728273c3dcbaaf56be2fe426f0bdf02f",
+      "size": 5633,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-03.json",
+      "sha256": "273379446a7ba08b5a672409c74a6e6ba4bb3df4debaec14a54e44d9690c64ee",
+      "size": 3388,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-03.md",
+      "sha256": "fedd48009b8fc26d7a873ddfa7eaa86cc57df840830bd74bcd9cd8da57886356",
+      "size": 2652,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-04.assessment.json",
+      "sha256": "258f21970b6fe750a739faebd48e37006be5f7ab3a607b5a56ffa1c4bed9d872",
+      "size": 5581,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-04.json",
+      "sha256": "1ab8604d8936c02f332b3b51fc9e25d31a335ab9976d2e8eb81f5db0a959fc21",
+      "size": 3543,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-04.md",
+      "sha256": "d2b679ac8ab80bc1fe9abd1f3e846d71e11606fcb65dcf5dddd56865a0cc8191",
+      "size": 2658,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-05.assessment.json",
+      "sha256": "ce06ac16c3f06bd432439d286783eb0915de6a0dfe07bd05917384cef3a2ccf6",
+      "size": 5447,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-05.json",
+      "sha256": "07cce042430f32c37f29fe299adc44abb16be7ff885b907ce4c0486fa37a619b",
+      "size": 3521,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-05.md",
+      "sha256": "36505e9a641bf30253882db02e7572bee988d9a1a80d8727525b6d17a7642192",
+      "size": 2774,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-06.assessment.json",
+      "sha256": "e106740e0d26e531edee84db62c21041be56280fe1bc3033768f9c21c6edd2d7",
+      "size": 5465,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-06.json",
+      "sha256": "d327a388607c71f3ff0e6772c42a40c34b52ae961cf7e1532e762bdc8462ccd8",
+      "size": 3485,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-06.md",
+      "sha256": "bf7adb1f7a9712cccf892bac13896d5591ee82d6e807311dde54b4c1b7d69562",
+      "size": 2745,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-07.assessment.json",
+      "sha256": "bedbaaaf7608778bd1abfac0f4d139edf7b855a0bcc0d018bc84b7b854389cc5",
+      "size": 5461,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-07.json",
+      "sha256": "a93f718fed1b6b50be714f4795d7d85c6c9bed11484f915107133d20124821eb",
+      "size": 3492,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-07.md",
+      "sha256": "20a518ca9d745e6ba7d7788e08e22b49b9c18ddb0ecdd98b5f7e6d190c6b9ea1",
+      "size": 2760,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-08.assessment.json",
+      "sha256": "14ec1dfadab5499d41a5e9a5254d4a586d72251be84d56cd9395d40cb9bfbf13",
+      "size": 5630,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-08.json",
+      "sha256": "635d73f5995b01464376f677bcd2da0ca9fb6170c487379f204e8cccab25c501",
+      "size": 3808,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter05/05-08.md",
+      "sha256": "d91bae9192573902f3a80456594adc781a314cdb5b14bc466b1f93b60ec4d121",
+      "size": 2907,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-01.assessment.json",
+      "sha256": "154698de327d41df173236fe4c51dc1988d105e424daa41c816851b6ff0f924d",
+      "size": 5199,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-01.json",
+      "sha256": "33fc6fed062440719baed91a5da77be1bcbb7b72c5623b16b79b8237218c26fe",
+      "size": 1989,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-01.md",
+      "sha256": "ad9b8e19ae9d32688c6792165687bda1bff36c972b20c6818aeb65c084ec2343",
+      "size": 1786,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-02.assessment.json",
+      "sha256": "8b3e62c9849f98742bfe9a42163ee1746b620aa15454f566ffe61ddcbe818a88",
+      "size": 5683,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-02.json",
+      "sha256": "b99e412e72af89d7f3acc9e2ed01836c4bdc8fad823cd7b2d8fa1975a8a689e0",
+      "size": 1975,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-02.md",
+      "sha256": "65c6a0ad7f0eff348b84da0b4a7beaf119f98f1b0e4eeea98717f78201d41c94",
+      "size": 1752,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-03.assessment.json",
+      "sha256": "cd473ee7b85f98cc42058b1e90afaef4dfec3ae353e3ef1e18adc1474d7cfc9e",
+      "size": 5014,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-03.json",
+      "sha256": "7afb185304ea01e87dc9a0240c485dc6623f4b7c5a9a19f43319f78a2da8fbf2",
+      "size": 1998,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-03.md",
+      "sha256": "49cc0fe0402b33d154425532c0874cc03fef8f8008dd3401940ab40b465db21c",
+      "size": 1756,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-04.assessment.json",
+      "sha256": "9c871ab4884758f4b3076fd87ffacf6deb2913970f524f886af7a16aa8325e22",
+      "size": 4992,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-04.json",
+      "sha256": "64a317c50c363e535b099aa5761a5d6e3888d89bdc7045eb4f7c16b26d926324",
+      "size": 1940,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-04.md",
+      "sha256": "49ab8a11baa56e7ba35e89fac663c967d00b6f0bb3814a6d690e0d8d24cbf550",
+      "size": 1730,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-05.assessment.json",
+      "sha256": "63ba4043a6695010ccc5860a34159aa366bc785ef678a69dba7e7c37af987b26",
+      "size": 4940,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-05.json",
+      "sha256": "5c2ae790cf4a8b226c4eb4df69ed339438ca7e28386d8878436c38c6849dd172",
+      "size": 1925,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-05.md",
+      "sha256": "dbbd63ba7cd1ee8af175fa073dc16782db164a5283e65ed71ee4a705caddd723",
+      "size": 1676,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-06.assessment.json",
+      "sha256": "56c5b97c86a880c5ba0e25b8e0213ae0afa4c2d9c082df41ce50e8ebc8e562c5",
+      "size": 5150,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-06.json",
+      "sha256": "f9dc8ff004c255b582eedf0b7d1c9a5d89e4c3ce2f61735e93e10d644f033145",
+      "size": 2002,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-06.md",
+      "sha256": "460483e05bc1a1d8a197316d14eb37f7bedb402c83482805efa8b2d7916aa0f7",
+      "size": 1785,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-07.assessment.json",
+      "sha256": "83f1c70e7802681fdc9bea3c4a3b47c4799bcdbd580d409722bdcd4313625f7a",
+      "size": 5066,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-07.json",
+      "sha256": "bb59ab78dd66711f17c0cca62ec43485fd8559b7fdf7ea5f7ac33559fe75e965",
+      "size": 2029,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-07.md",
+      "sha256": "07b18a0449027ed94a40a9b8707c3e8ce79acc5710099487be3ccf2df8579088",
+      "size": 1814,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-08.assessment.json",
+      "sha256": "5fff12aed8885ccf2a240e18784da1697eb22d37ab49b125822574ecc8c4e074",
+      "size": 5026,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-08.json",
+      "sha256": "a453639ee27fe9ddb79be22dd8f0977ac98f2edf93462eafe7395a0f0f6e19cc",
+      "size": 1957,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-08.md",
+      "sha256": "153c8af01aac2488da5f5d4b5cd00e8f72f9397a03269793e87429921cc8a3cb",
+      "size": 1726,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-09.assessment.json",
+      "sha256": "b7b3b7f5f2d90106fe9c49a85dd568adce8825349243eb914c33a98ad6e74d8b",
+      "size": 4900,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-09.json",
+      "sha256": "cbf2b07d3637bd31f58df49e17233faf2526a994bcac46835d137c9b71278920",
+      "size": 1914,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-09.md",
+      "sha256": "26564225a53312a604f000240c671999324e3880d89d8b2b8a6bf3e327c11341",
+      "size": 1690,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-10.assessment.json",
+      "sha256": "f23c89d10fd6b23f9410884e758cc79fd490b4258fcb3747972e0eebec7afb28",
+      "size": 5188,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-10.json",
+      "sha256": "5d129aca5d845741d85d5b1f0d42ea332c59140e597716f60ddd0c8b962d1a8d",
+      "size": 2383,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-10.md",
+      "sha256": "3e70673fd5d5d1fa80fb72aeb28a63bb8f9e8b2db02892df3f53b44c0e5bd03a",
+      "size": 2110,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-11.assessment.json",
+      "sha256": "708a428f69859e2ba2ae5c8c06e303a97654e1e13a9a91cf018753ff71a1a0a2",
+      "size": 5133,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-11.json",
+      "sha256": "2bc593daa164f37955bb554182428aa6a72c089e97ba7f8d43f8dbfcc59b0d58",
+      "size": 2085,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-11.md",
+      "sha256": "64e493ebedb11fcf9d6d1f7c5374aace806d36f09256f97461322f977bdeb518",
+      "size": 1859,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-12.assessment.json",
+      "sha256": "1232b8feba115c688917e90b42bda37c41ae35fb3a7a2711e6f1974471028894",
+      "size": 5627,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-12.json",
+      "sha256": "c0fe6eaeb29098fc3242f9b991125d1c072bbe4a43e174db6ee6e5f0d478c1c1",
+      "size": 1946,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-12.md",
+      "sha256": "54e47e2516105fc1abfba5bfcf1d69708a44b18c38b85aba4dd6f5869a119946",
+      "size": 1729,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-13.assessment.json",
+      "sha256": "dc054bf2778cd467eeedb10e4ae50dfdce52d134a30b76abfbb6ceb884a00c75",
+      "size": 5664,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-13.json",
+      "sha256": "bff3841ba32bc31c710e2b50a2331f5d4dcb7fe53f5745e10e397b6a8fb0c331",
+      "size": 1950,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-13.md",
+      "sha256": "b1100cb73a427e0e241367174d7290292db3760c43f058011396c99082c09f4f",
+      "size": 1733,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-14.assessment.json",
+      "sha256": "0134a764986812a740038fce4a2d40f5222cbfd5cebd10e80f9d9fea8369388f",
+      "size": 5358,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-14.json",
+      "sha256": "669f341b767005a36a8e6d3b25f4929101cfddb5f1199197e6c9e9b05c7a3e1b",
+      "size": 2063,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-14.md",
+      "sha256": "9a3eaea1795266a337f18e62367e892c8ae03112293ccb5e8409666afd42da91",
+      "size": 1832,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-15.assessment.json",
+      "sha256": "56e23222283462ce6d06b21c3991971256cbaf80f0a03c095c08e2a0ea2af01b",
+      "size": 5845,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-15.json",
+      "sha256": "a8da48a8e424887be2c03fc39300a72d90878895a2982c456905d52ed3eac363",
+      "size": 1999,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-15.md",
+      "sha256": "743e9116eb8b4837bb95d7df0834b896f13f4d2252e18cf2a164ec8e9781ff7b",
+      "size": 1776,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-16.assessment.json",
+      "sha256": "308d3c499f38d202391dbc3f13da494f05fc3740102dbae7d70c9da5bc45f068",
+      "size": 5780,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-16.json",
+      "sha256": "2c9062b557a2cb196a7ae82abf6dafc7e0267249cff2ada96d442d446a326239",
+      "size": 1971,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter06/06-16.md",
+      "sha256": "8adaca2033b9e5430d999418a90ac1739b156a2c0f6e8461510b0e467a9ed1d3",
+      "size": 1745,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-01.assessment.json",
+      "sha256": "914a6413729acd0805e44787951f0de3b321d36771bc542d9b7b4a3c2569b4ff",
+      "size": 5789,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-01.json",
+      "sha256": "13384c629927183d51b8c8076f2c1849fcdeb13259002b087996eb707c48621d",
+      "size": 1995,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-01.md",
+      "sha256": "b449caa97e9185f7e37dc0da5c63d1e41c8f06509533ae4df59b157a8f153266",
+      "size": 1777,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-02.assessment.json",
+      "sha256": "8ae0d47544e834616c914ecec7de452d20ab653b652c0fb7e61871a52404adbd",
+      "size": 5879,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-02.json",
+      "sha256": "40a99c1502e8768525803bedc54140446bf6709fd34066ca69c54ac0abf7522e",
+      "size": 2034,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-02.md",
+      "sha256": "08a0828d90ee5e6e0741ab6e3c09743d4822af5728e7d442c299eb3c820bfdfb",
+      "size": 1808,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-03.assessment.json",
+      "sha256": "f42ad49355d0a694bce9bf483db777e95c8f0d10d7cfff220bacd6d190e5e30b",
+      "size": 5766,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-03.json",
+      "sha256": "69c2ccf9f63ca07e562d937aba3b18dab62234f4b0691410d2bd3e7f4f9ce7b5",
+      "size": 1947,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-03.md",
+      "sha256": "8ee65e5bdd4b6cab4ca3765077cc5bbec135b33dbd9e18a1f47b387ea2fa4983",
+      "size": 1730,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-04.assessment.json",
+      "sha256": "0c1bc0d68a97896ba364e33de3ba97b935c17405506c5e493854279e6f91904a",
+      "size": 5689,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-04.json",
+      "sha256": "6748cb988419c63c77c57e78b601f08495046c469bca738a2bacdd39ce883c34",
+      "size": 2050,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-04.md",
+      "sha256": "dbbb6e4a6413196e1ca6d3694f75833be2b4dee19d9a9b28dfef4c5260d2a0fd",
+      "size": 1827,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-05.assessment.json",
+      "sha256": "6d78f7a3c5a4ea00e8a674d2feee2dd1c0ba8be78b5ef50f68c6394ef3129403",
+      "size": 5797,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-05.json",
+      "sha256": "20f7d2400351d3fd7cde47a2f6f801438c20d5702924a115e37ee4c6e0014c60",
+      "size": 1998,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-05.md",
+      "sha256": "1806adb836d678391f808efd371113eaf2818477c332c16835bed59c3512ab4f",
+      "size": 1775,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-06.assessment.json",
+      "sha256": "058be35e055247b5ee8b7cb109d5f7e370c340ca21ad059575bd7b105635bfd4",
+      "size": 5772,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-06.json",
+      "sha256": "03da267313437db0cdf983ac64571718f8f241c68d16b7ff26ad60013ad14e47",
+      "size": 2007,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-06.md",
+      "sha256": "16896563b961c6d9c4c70c2fcc33a9b27c68c101e0df405986bf6d81928f0804",
+      "size": 1789,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-07.assessment.json",
+      "sha256": "36947ba53c362e1d8e611e0576660f18ad3fa29e80abf56ba5ccf8eb59dbcf76",
+      "size": 5956,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-07.json",
+      "sha256": "682c4e577f613dd1ec4311ec6bb6bf6be7ce33e304a0a55d5aa602873b973a9f",
+      "size": 2038,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-07.md",
+      "sha256": "a8aeda7ee2285a47cd43a253db6ef7544f38eb73ceeafb71d509a66e06313c74",
+      "size": 1816,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-08.assessment.json",
+      "sha256": "ad790d22c0d99fffc99f5315d2799bc58931273921a60372bedb35ec011b63b8",
+      "size": 5947,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-08.json",
+      "sha256": "cb502b52d7a765cea9e10ecc994c9506abb5a932fab6bfef6e472f9f182d937e",
+      "size": 2022,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-08.md",
+      "sha256": "500fc38c37d5224e63a9168161dc0af53fd695cbed4236aeffa0f2a0d5308341",
+      "size": 1785,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-09.assessment.json",
+      "sha256": "f5abd9f6081126796e61238a0c79b6637a0845bc73772fd27a4ecd117fbb7f6a",
+      "size": 5817,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-09.json",
+      "sha256": "af7f60b4d2b08fffdeaece7b1dc26f8ec6ec6c18aea0ee5b9fa88d506e7d0dcd",
+      "size": 2029,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-09.md",
+      "sha256": "3cff3c354a235cd3d6465453079a9adc4d21bcd5aea7e9ebeebd42fc269d01f2",
+      "size": 1807,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-10.assessment.json",
+      "sha256": "46171cc99aebaf894faebbfc1483c3969dc496024b4cedc32aaff444393493c4",
+      "size": 5924,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-10.json",
+      "sha256": "e68cb4175661ecbc384785abe2b16909eb263e58112728bcbfce5a4bb8a22d61",
+      "size": 2024,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-10.md",
+      "sha256": "b4d012165448fd3f3a6ff48256489f4426ae4a27de4043837bd2b2337e16d80a",
+      "size": 1796,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-11.assessment.json",
+      "sha256": "f82203b8d4d1b6fffe91fa2367fdf218cc206ab994055d720b9b8a15999664d7",
+      "size": 5917,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-11.json",
+      "sha256": "7247490604c7eecb9fa809e0afac069034ea90684412d723586109931558b123",
+      "size": 2103,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter07/07-11.md",
+      "sha256": "127fdec4bf88dbef0f58065fb777ec6a8275044ac1df32a8e7e41843f9abbbbf",
+      "size": 1875,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-01.assessment.json",
+      "sha256": "3687e9cffee0af4fe6db73f86acc4878199a792670a7ff8c0cf9b0279f5ee6fa",
+      "size": 5982,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-01.json",
+      "sha256": "2a3768667494b399e2f3d7813fcae8657c371ab051dfb81683033e0703c7174a",
+      "size": 2069,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-01.md",
+      "sha256": "697e400932229ea72cbb7e12321850db9385e5cf978663fb98927cf4c3e22e19",
+      "size": 1856,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-02.assessment.json",
+      "sha256": "e4bafa38e4445318def211a098d51cbbf85f33e0974e0bb23f14004a370b7199",
+      "size": 6253,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-02.json",
+      "sha256": "d08cc769274321643f381e864fd7900b31d8df7d4c7475af5bea013ab85cab45",
+      "size": 2071,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-02.md",
+      "sha256": "06099738df8470d1a44923098e2aa38d27a7460438e12183fd4aff74ed007faf",
+      "size": 1826,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-03.assessment.json",
+      "sha256": "eb4eb577da1c32de6f997151fd394286d14bdce2ba9e0f9fbbe7b8baa9efc182",
+      "size": 5907,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-03.json",
+      "sha256": "c818b603c0a6c5d6902035022e67c965540e41bff9fdabd85382981a9ffc84ce",
+      "size": 2064,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-03.md",
+      "sha256": "90ec6736621093ab72b038739ee945eeb8fff190a9ceafb1aff3f39e2ef7920d",
+      "size": 1839,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-04.assessment.json",
+      "sha256": "13a1dec53dc8931ebfb550149105a1bae3b4b3db551985127bb4a681ecb82b53",
+      "size": 5925,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-04.json",
+      "sha256": "99d7f85e5e4d9e41612379a115a9c5019dbfc88d38ae2620379b49aea903c1f6",
+      "size": 2032,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-04.md",
+      "sha256": "81f8c383e5b118e7ef103281699dd887af8eb62cd1cd73e734774eb32af4f463",
+      "size": 1805,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-05.assessment.json",
+      "sha256": "2af0780295433e0e319ef687a8d467edd5b6ead9f0d4465d8ec6001e97457b82",
+      "size": 5780,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-05.json",
+      "sha256": "abe78ea4ebd47c9bb1525556400b291740dfe6485d80d4678c2105a798cdfef3",
+      "size": 2061,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-05.md",
+      "sha256": "a0fd522e5b62fd026caab37d3746a065cff59b24d7a9bdca5c06396dea450e65",
+      "size": 1841,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-06.assessment.json",
+      "sha256": "301c5034744e32cf76164091d956fb296dfb221fcbbc973a5f185f4c0120f8c7",
+      "size": 5900,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-06.json",
+      "sha256": "f15b3e030939761a7ae95ecf7d2cf58f7e93be7e101808d7f2fbb5b6ceed43d0",
+      "size": 2040,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-06.md",
+      "sha256": "57fec06031114c9dff551abb09684bf014b8e6bd8fdb1b2b0756895ee931196d",
+      "size": 1803,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-07.assessment.json",
+      "sha256": "12ebf6c0f07aae98d1e03ceabbb8138f4f3a53313c2c117269b99112214e5555",
+      "size": 5972,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-07.json",
+      "sha256": "13ad9f698c397cbf911a8fb7f116931b3ffc01ac0fc25b57989bb4bd1acc1d62",
+      "size": 2021,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-07.md",
+      "sha256": "911139818a6bd27e3f284ac6bae363f12be75f1e2c5274e929e5c1dfb0feeb1a",
+      "size": 1787,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-08.assessment.json",
+      "sha256": "dedf992e64c95fc70211b4159a05c5f09db5709832bb7a79453e75951496487b",
+      "size": 5949,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-08.json",
+      "sha256": "5a58199fbc0aec218bc291a26274083af5819a759b65cb4595527f555d704c3e",
+      "size": 2004,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter08/08-08.md",
+      "sha256": "5c1789852d33a7ec69428ddf4e376489eda6b59e810e6680670097c808f3463e",
+      "size": 1770,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-01.assessment.json",
+      "sha256": "3ae830d45e6c9dc96a2b5ad8de01e3bc9bd4e401337f0e7003b848e8a37f7e54",
+      "size": 5590,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-01.json",
+      "sha256": "d1f3ff2eb85e045674d5ec7998ad29d44bc7b809819c7d9fb175b2ffa17d9f07",
+      "size": 1979,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-01.md",
+      "sha256": "35e90e16017d9c07f9b83128d4b41ec9f8c2896ec9a9409e9d18c996a72682f4",
+      "size": 1772,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-02.assessment.json",
+      "sha256": "4e5e13ecfa06c8f5eac9e4fc8245ecfc94fba4a91d4f339322798723b6f9fea4",
+      "size": 5530,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-02.json",
+      "sha256": "39b29c0b21b33dc704a00a6ac916dce0a40b60e1f67f005b03ebbdc7586f9ec6",
+      "size": 2062,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-02.md",
+      "sha256": "9350c960ea9e84a29ad78d43bc92043ee47e31192fe703a8a5cfc33be924678c",
+      "size": 1842,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-03.assessment.json",
+      "sha256": "0c7fc19479c0377866a21b7afd211182cb99cabab7ee11b5c31db1e893dec75c",
+      "size": 5941,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-03.json",
+      "sha256": "345602adeef2627245a1a291d22d3c4badd1ff4c2f106e069599395ead112203",
+      "size": 2132,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-03.md",
+      "sha256": "7df4c3a547427e8abfb199e2468d7057ca36839e9924243bd86c9351639d846f",
+      "size": 1899,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-04.assessment.json",
+      "sha256": "91945d301df4233db6d261b1f76fdf8729ec59e2b9895d44dbf62ad8a1863bc1",
+      "size": 5839,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-04.json",
+      "sha256": "10b40a2553107a65215d6c17b18a6797729230d3f7206a54d26d13e873060f4e",
+      "size": 2002,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-04.md",
+      "sha256": "de598880f860645c1d38029ebab46b81d6711b382928fd699eb32e93be755018",
+      "size": 1776,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-05.assessment.json",
+      "sha256": "3a640cf45a1a2ce3de08c0fc570c4c144cfc9464a5eaef70add9695467b907c8",
+      "size": 5824,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-05.json",
+      "sha256": "fd1796788e649851ffe97da28feb0eaf8bc46ee6fa994f56bb57dc0bb68648cd",
+      "size": 2047,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-05.md",
+      "sha256": "8885e4642076b9afdb6fc7da0e235113919f57ed34bdb858e33cc8100cb11fcc",
+      "size": 1819,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-06.assessment.json",
+      "sha256": "b471b61f88d82272cadf95adb72b712a6f6788e8c55c44a4cd7cd34116981ad3",
+      "size": 5717,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-06.json",
+      "sha256": "5a787892eb05c2720a880c0df9f8052af8d200504eda7f2a6a8d49b724054c8f",
+      "size": 2033,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-06.md",
+      "sha256": "44d69d0b3a41ba054ec102902ce7a260cbaa9e825803a2c1923d85a3e7161a61",
+      "size": 1799,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-07.assessment.json",
+      "sha256": "6855ed892eccea42e67fbbd08910dd733f932ea9c6b76da4af8dd94794fb1c58",
+      "size": 6019,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-07.json",
+      "sha256": "87fa52dd585862d78a85aa0d862f86c56009bb3d45291f8eda73e7183a31124a",
+      "size": 2142,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/lessons/chapter09/09-07.md",
+      "sha256": "bab4b426a5ef007cf44c10599068db58f7364190b8a7d0582c23f704379f3b4c",
+      "size": 1913,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/pedagogy.md",
+      "sha256": "2ab53db44a8a15b1ba4db48bc8874aa24caab05dc479918cb15e83cf0d7f01ad",
+      "size": 3699,
+      "lessonIds": []
+    },
+    {
       "path": "teaching/prompts.json",
       "sha256": "6f4b156d74f4ba6f773b4684bdccf9e8243ece4c8368c8a8f0cf80f25d058196",
       "size": 535,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/routes.json",
+      "sha256": "e5727cb3e890835ed13a2c03ad11c414c85b64ed2abc4c6cbf10b410f8e63d30",
+      "size": 4497,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/state-schema.md",
+      "sha256": "0eed87fc08688ce4c9315b030a9256859a3b116759317758d18b7b5df24c1466",
+      "size": 899,
       "lessonIds": []
     }
   ]

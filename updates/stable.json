@@ -1,30 +1,35 @@
 {
   "product": "AI Academy",
   "channel": "stable",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "releaseDate": "2026-11-19",
   "minBootstrapVersion": "1.0.0",
-  "requiresConfirmation": false,
+  "requiresConfirmation": true,
   "changelog": [
-    "补充 Python 函数的双案例验收与 return/print 区分",
-    "增加本地环境验收模板和教学反馈规则",
-    "强化模拟练习与真实实验的记录边界"
+    "02-04 重构为独立的 JavaScript 项目入门课",
+    "增加目录探索、配置实验与六种启动排障情境",
+    "九章教学质量整理，保留课号、题号与学习记录",
+    "移除公开来源处理清单，提供原创启动练习项目"
   ],
-  "added": [],
+  "added": [
+    "02-04 项目交互实验与原创启动练习包"
+  ],
   "modified": [
-    "06-10 Python 函数"
+    "02-04 让 JavaScript 在电脑上运行",
+    "全站概念辨析、导入与总结"
   ],
   "fixed": [
-    "教学反馈保留预测、实际结果及未验证项"
+    "去除公开视频制作过程信息与机械术语题",
+    "保留 1.1.0 Python 函数教学改进"
   ],
-  "packageUrl": "https://github.com/caitomato/ai-academy/releases/download/courses-v1.1.0/courses-1.1.0.zip",
-  "sha256": "534a1040b25875ef973484373acca2406dbaa97ca116085a3919731b6682b09a",
-  "packageSize": 132656,
+  "packageUrl": "https://github.com/caitomato/ai-academy/releases/download/courses-v1.2.1/courses-1.2.1.zip",
+  "sha256": "21df4896cd2f22a6097fc83f19928dcfc1b256aa154bee9f85e53685f4d9f349",
+  "packageSize": 136333,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "3df73be60bf0e40d6f9213687dfb0695225a35f5a985a4e42693689b97b70ffd",
-      "size": 593,
+      "sha256": "704bef0237da2738b71a7ec45927cea480c05502a65fa4a3e099aedfbbbd9127",
+      "size": 986,
       "lessonIds": []
     },
     {
@@ -247,6 +252,12 @@
       "lessonIds": []
     },
     {
+      "path": "labs/study-timer.zip",
+      "sha256": "0a82697fc76532c087f054bca920fcb81a5981801c7e883919460d32aa83513b",
+      "size": 1559,
+      "lessonIds": []
+    },
+    {
       "path": "labs/study.md",
       "sha256": "5ba6b2ce9d4e0283e8765dfad45f15702fed3ede4ea431f3c22f750bdc0a09a7",
       "size": 365,
@@ -262,6 +273,12 @@
       "path": "migrations.json",
       "sha256": "986bf4aa30458d3c5270dd5c29ec29d62472dd02627cc58414b0026da7082136",
       "size": 43,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/course-design.md",
+      "sha256": "f9032f242df371f2c22684274d2bff5989f5401005c33199780ec8676d8452da",
+      "size": 2983,
       "lessonIds": []
     },
     {

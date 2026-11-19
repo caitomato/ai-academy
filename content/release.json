@@ -1,10 +1,23 @@
 {
-  "version": "1.0.0",
+  "version": "1.2.0",
   "releaseDate": "2026-11-19",
   "minBootstrapVersion": "1.0.0",
-  "requiresConfirmation": false,
-  "changelog": ["建立网页与本地导师共用的中央课程库", "加入版本校验、离线缓存与回滚", "保留九章九十节课程及原有课程 ID"],
-  "added": [],
-  "modified": [],
-  "fixed": ["课程内容与学生学习记录独立存储"]
+  "requiresConfirmation": true,
+  "changelog": [
+    "02-04 重构为独立的 JavaScript 项目入门课",
+    "增加目录探索、配置实验与六种启动排障情境",
+    "九章教学质量整理，保留课号、题号与学习记录",
+    "移除公开来源处理清单，提供原创启动练习项目"
+  ],
+  "added": [
+    "02-04 项目交互实验与原创启动练习包"
+  ],
+  "modified": [
+    "02-04 让 JavaScript 在电脑上运行",
+    "全站概念辨析、导入与总结"
+  ],
+  "fixed": [
+    "去除公开视频制作过程信息与机械术语题",
+    "保留 1.1.0 Python 函数教学改进"
+  ]
 }

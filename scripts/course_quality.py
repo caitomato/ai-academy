@@ -16,6 +16,8 @@ def apply_quality(lesson):
     lesson['sections'] = [s for s in lesson['sections'] if s['title'] not in ('把概念放进场景', '辨清边界')]
     lesson['summary'] = f"本节的判断要点：{explanation} 实践后，用“{' → '.join(lesson['steps'])}”检查是否留下了可验收的结果。"
     lesson['sourceNote'] = '课程以独立任务、讲解与练习组织；研发参考《AI学习文档》及配套教学资料。工具版本、接口与服务限制以使用时官方说明为准。'
+    if lid == '06-10':
+        lesson['sections'].append(dict(title='用两个调用验证函数，而不只看一次输出', text='先预测 add(2, 3) 返回 5，再检查 add(-2, 2) 返回 0。return 把结果交给调用者，print 只负责显示。若函数只 print 而没有 return，调用结果通常是 None。记录输入、预测和真实结果，才能判断函数是否符合预期。'))
     q = lesson['questions'][2]
     q.update(type='single',prompt=prompt,options=[correct,wrong],answer=[correct],explanation=explanation,hint='比较两种处理方式的前提与后果，不用背术语顺序。')
     if sum(ord(x) for x in lid) % 2:

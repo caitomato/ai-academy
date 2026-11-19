@@ -29,6 +29,7 @@ jobs:
           git fetch origin main
           git checkout main
           git pull --ff-only origin main
+          mkdir -p updates
           cp release-output/bootstrap.json updates/bootstrap.json
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'

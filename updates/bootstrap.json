@@ -1,0 +1,29 @@
+{
+  "product": "AI Academy Bootstrap",
+  "version": "1.0.0",
+  "installerVersion": "1.0.0",
+  "packageUrl": "https://github.com/caitomato/ai-academy/releases/download/bootstrap-v1.0.0/bootstrap-1.0.0.zip",
+  "sha256": "b220b4a54e1264a95bbef5739ba84d84f5f6d9dc225d7daa6bf7d1219f91965a",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "sha256": "497d12b9f58407853eff92ffeacf052348fb0819eb03e382291db1988a4f6445"
+    },
+    {
+      "path": "install.py",
+      "sha256": "458c01cff1bb8fe4fef7c2b150a129941a7014b446f8174aebdae8160bf67e08"
+    },
+    {
+      "path": "launch.py",
+      "sha256": "cf939ad67fb3a44e351e8c06edc9ccd8febd9ab8c819f959f6213ceb9dac8956"
+    },
+    {
+      "path": "scripts/academy.py",
+      "sha256": "43dd028b2db0c5afa6081cf3ca7c7726b03dda0ad0404c5f646bb5d3ce2950cc"
+    },
+    {
+      "path": "scripts/state.py",
+      "sha256": "885fab4943ad2c5aff1e3d1ea9a399adcfe7c696d588f6ad2f7fe783a28425d2"
+    }
+  ]
+}

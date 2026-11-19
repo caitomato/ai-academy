@@ -119,7 +119,7 @@ class School:
     def question(self, lid, qid):
         _, _, base = self.lesson(lid)
         bank = read_json(base.with_suffix('.assessment.json'))
-        q = next((x for x in bank['questions'] + bank['test'] if x['id'] == qid), None)
+        q = next((x for x in bank['questions'] + bank['test'] + bank.get('decisions', []) if x['id'] == qid), None)
         if q is None:
             raise ValueError('Unknown question ID')
         return q
@@ -265,7 +265,7 @@ def main():
         elif args.command == 'read': result = school.read()
         elif args.command == 'enroll': result = school.enroll(args.route, args.level)
         elif args.command == 'choose': result = school.choose(args.lesson)
-        elif args.command == 'question': result = {k:v for k,v in school.question(args.lesson,args.question).items() if k not in ('answer','explanation')}
+        elif args.command == 'question': result = {k:v for k,v in school.question(args.lesson,args.question).items() if k not in ('answer','explanation','optionExplanations')}
         elif args.command == 'answer': result = school.answer(args.lesson,args.question,json.loads(args.answer_json))
         elif args.command == 'finish': result = school.finish(args.lesson)
         elif args.command == 'lab-create': result = school.lab(args.lesson)

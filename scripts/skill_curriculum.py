@@ -13,14 +13,18 @@ def generate(chapters):
         for lesson in chapter['lessons']:
             lid = lesson['id']
             base = f'teaching/lessons/chapter{chapter["id"]:02}/{lid}'
-            dependencies = [previous] if previous else ([] if chapter['id'] == 1 else ['01-05'] if chapter['id'] in (3,7) else ['01-01'])
+            dependencies = lesson.get('prerequisites', [previous] if previous else ([] if chapter['id'] == 1 else ['01-05'] if chapter['id'] in (3,7) else ['01-01']))
             index.append(dict(id=lid, chapterId=chapter['id'], title=lesson['title'], objectives=lesson['objectives'], prerequisites=dependencies, lesson=base+'.md', data=base+'.json', assessment=base+'.assessment.json'))
-            data = {k:v for k,v in lesson.items() if k not in ('questions','test')}
+            data = {k:v for k,v in lesson.items() if k not in ('questions','test','decisionLab')}
             files[base+'.json'] = encode(data)
-            files[base+'.assessment.json'] = encode(dict(questions=lesson['questions'], test=lesson['test']))
+            decisions = [dict(id=f'{lid}-d{i+1}',lessonId=lid,type='scenario',prompt=stage['title']+'：'+stage['context'],options=[o['label'] for o in stage['options']],answer=[o['label'] for o in stage['options'] if o['correct']],explanation='\n'.join(o['label']+'：'+o['result'] for o in stage['options'])) for i,stage in enumerate(lesson.get('decisionLab',{}).get('stages',[]))]
+            files[base+'.assessment.json'] = encode(dict(questions=lesson['questions'], test=lesson['test'], decisions=decisions))
             parts = [f'# {lid} · {lesson["title"]}', '## 今天要学什么', *['- '+x for x in lesson['objectives']], '## 为什么要学', lesson.get('introduction') or '这节课帮助你完成下面的实际任务：'+lesson['task'], '## 核心概念']
             for section in lesson['sections']:
                 parts += ['### '+section['title'], section['text']]
+            if lesson.get('analogy'): parts += ['## 生活类比',lesson['analogy']]
+            if decisions:
+                parts += ['## 互动决策实验',lesson['decisionLab']['title'],lesson['decisionLab']['introduction'],*['- 用 question 命令加载 '+q['id']+'；学生回答后用 answer 命令查看真实反馈。' for q in decisions]]
             parts += ['## 原创案例', lesson['example'], '## 动手实践', lesson['task'], *[f'{i+1}. {step}' for i,step in enumerate(lesson['steps'])]]
             if lesson.get('code'): parts += ['```', lesson['code'], '```']
             if lesson.get('lab'):
@@ -34,7 +38,7 @@ def generate(chapters):
                 parts += ['## 项目教程',json.dumps(lesson['experience'],ensure_ascii=False,indent=2)]
             parts += ['## 误区',lesson['misconception'],'## 小结',lesson.get('summary') or '完成后，请用自己的话解释关键概念，并用实际结果检查任务。','## 练习入口', '课堂练习和课后题由 school.py question / answer 按题加载。不要提前向学生展示答案。','## 来源',lesson.get('sourceNote','原创教学整理；参考说明见课程源。')]
             files[base+'.md']='\n\n'.join(parts).encode('utf-8')
-            if not lesson.get('lab') and not lesson.get('experience'):
+            if lesson.get('developmentStatus') == 'needs-expansion' or (not lesson.get('lab') and not lesson.get('experience') and not decisions):
                 gaps.append(dict(lessonId=lid,status='needs-dedicated-lab',reason='讲义、案例和七道题齐全；专用环境验证及项目验收仍需补充。当前可做概念练习或学习笔记，不冒充完整编程实验。'))
             previous=lid
     routes={

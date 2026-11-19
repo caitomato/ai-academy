@@ -88,6 +88,7 @@ export function parseState(raw: string): State {
     throw new Error("备份格式不正确，原有记录未改变。");
   if (s.taskDays !== undefined && !strings(s.taskDays))
     throw new Error("实践日期格式不正确。");
+  if (s.studySeconds !== undefined && (!s.studySeconds || Array.isArray(s.studySeconds) || typeof s.studySeconds !== "object" || !Object.values(s.studySeconds).every((v) => typeof v === "number" && Number.isFinite(v) && v >= 0))) throw new Error("学习时长格式不正确。");
   return migrateState({ ...s, taskDays: s.taskDays || [] });
 }
 export function today() {

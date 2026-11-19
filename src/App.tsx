@@ -13,6 +13,7 @@ import {
 import { Quiz, Test } from "./components/Quiz";
 import { PracticeLab } from "./components/PracticeLab";
 import { NodeProject } from "./components/NodeProject";
+import { DecisionLab } from "./components/DecisionLab";
 import { CourseUpdates } from "./components/CourseUpdates";
 import {
   ArrowRight,
@@ -154,6 +155,15 @@ export default function App() {
       );
     }
   }, [page, chapter, examRound]);
+  useEffect(() => {
+    if (page !== "lesson" || !lesson) return;
+    let previous = Date.now();
+    const timer = window.setInterval(() => {
+      const now = Date.now(); const seconds = Math.min(15, Math.round((now - previous) / 1000)); previous = now;
+      if (document.visibilityState === "visible" && document.hasFocus()) setState((s) => ({ ...s, studySeconds: { ...s.studySeconds, [lesson.id]: (s.studySeconds?.[lesson.id] || 0) + seconds } }));
+    }, 15000);
+    return () => window.clearInterval(timer);
+  }, [page, lesson]);
   function toggle(key: "completed" | "bookmarks" | "tasks", lid: string) {
     setState((s) => ({
       ...s,
@@ -473,8 +483,8 @@ export default function App() {
                 <div className="page-heading">
                   <div>
                     <span className="eyebrow">AI Academy / 学习手册</span>
-                    <h1>从零开始，学会使用 AI</h1>
-                    <p>9 章系统课程，按自己的节奏学习、练习和复习。</p>
+                    <h1>从零开始，系统掌握人工智能。</h1>
+                    <p>通过系统课程、互动练习和实际项目，让 AI 学习真正发生。</p>
                   </div>
                   <span className="edition">入门 · 实践 · 原理</span>
                 </div>
@@ -694,6 +704,7 @@ export default function App() {
                         不必等到全部理解。先试着做一个小任务，把遇到的问题带回课程里。
                       </p>
                     </section>
+                    <section className="panel"><h3>推荐课程</h3><p className="muted">优先推荐前置课程已完成、且尚未完成的课程。</p>{lessons.filter((item) => !state.completed.includes(item.id) && (item.prerequisites || []).every((prerequisite) => state.completed.includes(prerequisite))).slice(0, 3).map((item) => <p key={item.id}><a className="text-link" href={`#lesson/${item.id}`}>{item.title} <ArrowRight size={15} /></a></p>)}<a className="text-link" href="#profile">打开学习档案</a></section>
                     <section className="panel">
                       <h3>最近学习</h3>
                       {state.recent.length ? (
@@ -796,6 +807,9 @@ export default function App() {
                         </div>
                       ))}
                     </section>
+                    {lesson.developmentStatus === "needs-expansion" && !lesson.experience && <p className="muted">本课基础讲解与题目可用，专用交互实验待完善。</p>}
+                    {!!lesson.prerequisites?.length && <p>建议先学：{lesson.prerequisites.map((prerequisite) => <a className="text-link" key={prerequisite} href={`#lesson/${prerequisite}`}>{lessonById[prerequisite]?.title || prerequisite}　</a>)}</p>}
+                    {lesson.analogy && <section className="reading"><span className="eyebrow">生活化理解</span><h2>换个熟悉的角度</h2><p>{lesson.analogy}</p></section>}
                     <section id="concepts" className="reading">
                       <span className="eyebrow">01 · 理解概念</span>
                       <h2>先理解，再记住</h2>
@@ -825,6 +839,7 @@ export default function App() {
                       </div>}
                     </section>
                     {lesson.experience && <NodeProject key={id} experience={lesson.experience} completed={state.tasks.includes(`${id}:project-lab-v2`)} onComplete={() => setState((s) => ({ ...s, tasks: [...new Set([...s.tasks, `${id}:project-lab-v2`])] }))} />}
+                    {lesson.decisionLab && <DecisionLab key={id} lab={lesson.decisionLab} completed={state.tasks.includes(`${id}:decision-v2`)} onComplete={() => setState((s) => ({ ...s, tasks: [...new Set([...s.tasks, `${id}:decision-v2`])] }))} />}
                     {!lesson.experience && <section id="example" className="reading">
                       <span className="eyebrow">02 · 案例演示</span>
                       <h2>把知识放进真实任务</h2>
@@ -957,6 +972,7 @@ export default function App() {
                       ["introduction", "课程导入"],
                       ["objectives", "学习目标"],
                       ["concepts", "知识讲解"],
+                      ...(lesson.decisionLab ? [["decision-lab", "交互实验"]] : []),
                       ...(lesson.experience ? [["project-structure", "项目结构"], ["project-workflow", "启动流程"], ["experiments", "交互实验"], ["troubleshooting", "故障排除"]] : []),
                       ...(!lesson.experience ? [["example", "案例演示"]] : []),
                       ["practice", "动手实践"],
@@ -1133,6 +1149,7 @@ export default function App() {
                     <span className="eyebrow">学习档案</span>
                     <h1>学习记录</h1>
                     <p>记录属于你。可以导出备份，再导入另一个浏览器。</p>
+                    <p>累计可见且聚焦的课程页面时长：{Math.floor(Object.values(state.studySeconds || {}).reduce((sum, seconds) => sum + seconds, 0) / 60)} 分钟。每 15 秒记录一次，仅表示页面使用时长，不证明已掌握。LocalStorage 不会自动跨设备同步。</p>
                   </div>
                 </div>
                 <div className="stat-grid">
@@ -1166,6 +1183,7 @@ export default function App() {
                     </div>
                   ))}
                 </section>
+                <section className="panel"><h2>课程用时与薄弱点</h2><p className="muted">薄弱点按最近作答仍错误的问题汇总，不是对能力的诊断。无用时记录的旧课程不会补造历史时长。</p>{state.recent.map((recentId) => <p key={recentId}><a href={`#lesson/${recentId}`}>{lessonById[recentId]?.title || recentId}</a> · {Math.floor((state.studySeconds?.[recentId] || 0) / 60)} 分钟</p>)}{lessons.filter((item) => [...item.questions, ...item.test].some((question) => { const last = state.attempts.filter((attempt) => attempt.questionId === question.id).at(-1); return last && !last.correct && !state.resolved.includes(question.id); })).map((item) => <a className="text-link" key={item.id} href={`#lesson/${item.id}`}>复习：{item.title}　</a>)}</section>
                 <section className="panel backup">
                   <h2>学习记录备份</h2>
                   <p>
@@ -1258,7 +1276,7 @@ export default function App() {
           <CourseUpdates />
           <footer className="site-footer">
             <span>
-              AI Academy <i>·</i> AI 零基础学习手册
+              AI Academy <i>·</i> AI 零基础学院 <i>·</i> 界面版本 2.0.0
             </span>
             <span>
               本地保存学习记录 <i>·</i>{" "}

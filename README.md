@@ -63,3 +63,9 @@ LocalStorage 键为 `ai-academy.progress.v1`，保存进度、收藏、作答、
 `materials/` 同样不进入版本控制，可存放 `videos/`、`pdf/`、`transcripts/`、`frames/` 与 `reports/`。在线检查不会伪造这些目录中的本地音频、完整转录或逐帧成果。在线文稿阅读与音频转录分别记录，课程生成与来源覆盖质量检查分别记录；未满足条件的状态保持待处理。
 
 02-04 新实验以 `02-04:project-lab-v2` 记录在原 LocalStorage tasks 中，旧模拟记录继续保留但不算新版实验完成。原有成绩、收藏、笔记与完成状态不清空。
+
+## Web V2
+
+界面版本 2.0.0 与课程内容版本独立管理。第一章七节含可操作决策实验；02-04 含项目目录、配置与排障模拟。其他课程保留讲解和有效题库，未完成专用实验时明确标注。学习档案保存前台页面学习时长、记录、错题、笔记和收藏；JSON 导入导出用于手动备份，不提供跨设备自动同步。
+
+中央数据位于 content/chapters，运行 npm run content:build 后再运行 npm test、npm run build 和 npm run test:e2e。原始资料与内部报告位于被忽略的 materials、local-source 或 video-workspace，不进入公开课程包。

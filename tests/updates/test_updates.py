@@ -186,6 +186,8 @@ class UpdateContract(unittest.TestCase):
         path = self.source / 'chapters/chapter06.json'
         chapter = json.loads(path.read_text(encoding='utf-8'))
         chapter['lessons'] = [l for l in chapter['lessons'] if l['id'] != '06-10']
+        for lesson in chapter['lessons']:
+            lesson['prerequisites'] = [lid for lid in lesson.get('prerequisites', []) if lid != '06-10']
         path.write_bytes(encode(chapter))
         manifest = self.server.publish(self.source, self.root / 'v2', '1.1.0')
         with self.assertRaisesRegex(ValueError, 'migration'):

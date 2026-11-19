@@ -1,7 +1,8 @@
 export type Question = {
   id: string;
   lessonId: string;
-  type: "single" | "multiple" | "boolean" | "fill" | "code" | "order";
+  type: "single" | "multiple" | "boolean" | "fill" | "code" | "order" | "prediction" | "troubleshoot" | "scenario";
+  optionExplanations?: Record<string, string>;
   prompt: string;
   options: string[];
   answer: string[];
@@ -29,6 +30,10 @@ export type Lesson = {
   subtitle?: string;
   introduction?: string;
   summary?: string;
+  prerequisites?: string[];
+  developmentStatus?: "reviewed" | "needs-expansion";
+  analogy?: string;
+  decisionLab?: { title: string; introduction: string; stages: { title: string; context: string; options: { label: string; result: string; correct: boolean }[] }[] };
   references?: { title: string; href: string }[];
   experience?: {
     kind: "node-project";
@@ -74,4 +79,5 @@ export type State = {
   notes: Record<string, string>;
   taskDays: string[];
   tasks: string[];
+  studySeconds?: Record<string, number>;
 };

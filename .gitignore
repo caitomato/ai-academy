@@ -13,3 +13,6 @@ materials/
 release-output/
 public/downloads/
 public/updates/
+
+# Local research pipeline outputs
+video-workspace/

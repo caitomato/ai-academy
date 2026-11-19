@@ -1,43 +1,41 @@
 {
   "product": "AI Academy",
   "channel": "stable",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "releaseDate": "2026-11-19",
   "minBootstrapVersion": "1.0.0",
   "requiresConfirmation": true,
   "changelog": [
-    "02-04 重构为独立的 JavaScript 项目入门课",
-    "增加目录探索、配置实验与六种启动排障情境",
-    "九章教学质量整理，保留课号、题号与学习记录",
-    "移除公开来源处理清单，提供原创启动练习项目",
-    "统一中央构建入口与本地实验材料加载规则"
+    "第一章七节完整决策实验与前置依赖",
+    "扩展九种题型，逐项解析选项",
+    "增加页面学习时长、推荐与薄弱点",
+    "区分已审核样板与专用实验待完善课程"
   ],
   "added": [
-    "02-04 项目交互实验与原创启动练习包"
+    "第一章十四个交互决策",
+    "课程页面学习时长与九种题型"
   ],
   "modified": [
-    "02-04 让 JavaScript 在电脑上运行",
-    "全站概念辨析、导入与总结"
+    "第一章全部课程",
+    "首页与学习档案"
   ],
   "fixed": [
-    "去除公开视频制作过程信息与机械术语题",
-    "保留 1.1.0 Python 函数教学改进",
-    "旧编辑脚本不再覆盖中央教材"
+    "保留旧题号、旧备份和中央课程更新兼容性"
   ],
-  "packageUrl": "https://github.com/caitomato/ai-academy/releases/download/courses-v1.2.2/courses-1.2.2.zip",
-  "sha256": "6e46900172e8a0cdadaa8f8ebc165919742ef5fd197f1de5000fe456560fba14",
-  "packageSize": 136658,
+  "packageUrl": "https://github.com/caitomato/ai-academy/releases/download/courses-v1.3.0/courses-1.3.0.zip",
+  "sha256": "e14ffb63d9a67d640d7edf2615cc2ac2da752c8e0edf7a7f5a540598f1682ab3",
+  "packageSize": 142744,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "407aba193317f12a8db496a5a9c62a8763ace6be244466174b042b5ffcfa5b85",
-      "size": 1232,
+      "sha256": "bcdb0722b60c82196afad931a81bf595d15f5c0b2ca3d6103893cf7e8c720b37",
+      "size": 1507,
       "lessonIds": []
     },
     {
       "path": "chapters/chapter01.json",
-      "sha256": "ef36bca8dd33342e605e47615702f388cd669ca24f02f5f28554e099738fc3b9",
-      "size": 71454,
+      "sha256": "72d609a44106fcd7cf748a6ac694a863df48674311f149b7021581f4b1ad2161",
+      "size": 126309,
       "lessonIds": [
         "01-01",
         "01-02",
@@ -50,8 +48,8 @@
     },
     {
       "path": "chapters/chapter02.json",
-      "sha256": "53de7ec79f245a6a1660855f34f295e196e65ea04dbc327713707aa069b9c3c9",
-      "size": 153649,
+      "sha256": "00186484135d2e99d83a7e3d744c581b3e752402907bb722d69d800153d3366a",
+      "size": 154868,
       "lessonIds": [
         "02-01",
         "02-02",
@@ -70,8 +68,8 @@
     },
     {
       "path": "chapters/chapter03.json",
-      "sha256": "0a523c249d0f7469e68abba56380deaf8512998a3b4e26ac45e59daadc91dfbc",
-      "size": 121339,
+      "sha256": "bf79bb402950bdfa3e5f118aa81c291f0e6ac37fde3c0f2288f2fff265a81659",
+      "size": 122372,
       "lessonIds": [
         "03-01",
         "03-02",
@@ -88,8 +86,8 @@
     },
     {
       "path": "chapters/chapter04.json",
-      "sha256": "80d59fc6aae06a4810b952384cddae02f8ed78f1771481f560cc16b3726b656c",
-      "size": 87851,
+      "sha256": "d873321059cfbeb59037bc5ed9aa5434d37e20498235c28ca9dac89c44631e39",
+      "size": 88692,
       "lessonIds": [
         "04-01",
         "04-02",
@@ -104,8 +102,8 @@
     },
     {
       "path": "chapters/chapter05.json",
-      "sha256": "2e7c81cfd831388251770c4a68a7c5ce06dac38a99f4a0d5342afdc81b1a8f31",
-      "size": 78791,
+      "sha256": "4e2c1eae3b919f87529323bf3565eb3e3b664b8ef1d37b7647a7785f2122a5fe",
+      "size": 79536,
       "lessonIds": [
         "05-01",
         "05-02",
@@ -119,8 +117,8 @@
     },
     {
       "path": "chapters/chapter06.json",
-      "sha256": "1448568d04fdd7b7b1636973fb6399eb3a1dfc40a5de8d63769f1e9e88a7da4f",
-      "size": 125229,
+      "sha256": "af1980e8f6823f664396be24110bc9c18ed33c95afd352cefb6e827c0761cced",
+      "size": 126802,
       "lessonIds": [
         "06-01",
         "06-02",
@@ -142,8 +140,8 @@
     },
     {
       "path": "chapters/chapter07.json",
-      "sha256": "a6df1a264fc633a37bd8a8b635d6d8ed69209c393df9dd27a54edf9cb9422290",
-      "size": 92391,
+      "sha256": "25ddbf2d3244561537ec4b7b180549d34329d6432e3ff64e2a41807c64be6788",
+      "size": 93424,
       "lessonIds": [
         "07-01",
         "07-02",
@@ -160,8 +158,8 @@
     },
     {
       "path": "chapters/chapter08.json",
-      "sha256": "6e7a9cccee14e1bb42f7236e599de512b9b739d033b8105e5dfb45c17565dab4",
-      "size": 68363,
+      "sha256": "a52f029fb93c4f54c7931365c4fe62f8cc0580650535167502d64db771cd737d",
+      "size": 69108,
       "lessonIds": [
         "08-01",
         "08-02",
@@ -175,8 +173,8 @@
     },
     {
       "path": "chapters/chapter09.json",
-      "sha256": "dc8bf6348aa213a162b86df4b7a69bda4ef79bee9a128f422a4e0ccd6c921fd6",
-      "size": 58672,
+      "sha256": "445ad1f6dfc996ac71055a2e93e4c3b34ebf5398dae920673e372d153aa1681e",
+      "size": 59321,
       "lessonIds": [
         "09-01",
         "09-02",

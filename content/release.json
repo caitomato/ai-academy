@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "releaseDate": "2026-11-19",
+  "minBootstrapVersion": "1.0.0",
+  "requiresConfirmation": false,
+  "changelog": ["建立网页与本地导师共用的中央课程库", "加入版本校验、离线缓存与回滚", "保留九章九十节课程及原有课程 ID"],
+  "added": [],
+  "modified": [],
+  "fixed": ["课程内容与学生学习记录独立存储"]
+}

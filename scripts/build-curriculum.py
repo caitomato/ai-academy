@@ -70,5 +70,7 @@ for chapter in chapters:
         enrich(lesson)
         apply_sample(lesson)
         apply_quality(lesson)
-    (ROOT/f"src/data/curriculum/chapter{chapter['id']:02}.json").write_text(json.dumps(chapter,ensure_ascii=False,indent=2),encoding='utf-8')
+    # Authoring seeds export to the central release source and its web projection.
+    for directory in ('content/chapters', 'src/data/curriculum'):
+        (ROOT/f"{directory}/chapter{chapter['id']:02}.json").write_text(json.dumps(chapter,ensure_ascii=False,indent=2),encoding='utf-8')
 print(f"Compiled {len(chapters)} chapters, {sum(len(c['lessons']) for c in chapters)} lessons")

@@ -2,6 +2,10 @@
 
 一个无后端、无需登录的中文互动学习网站。包含 9 章、90 节原创改写课程与 630 道练习及测试题，支持六类题型、章节随机考试、错题复练、收藏、笔记和本地进度。前五章的 47 节课程提供可复制任务卡；02-04 提供独立的项目交互实验与八步启动教程。
 
+中央课程库位于 `content/`，网页与 Codex / Claude Code 本地导师共用同一教材。维护者编辑一次，通过正式课程 Tag 发布版本；学生的新学习会话自动检查更新，离线使用缓存，学习记录独立保存。课程版本、Bootstrap 安装、发布及回滚说明见 [UPDATES.md](UPDATES.md)。
+
+课程编辑后运行 `npm run content:build`，再运行测试和构建。生产网页使用最新正式 Release 的课程包，UI 提交不会升级课程版本。旧课程编辑脚本暂为并行迁移保留，不参与正式发布链；新教材仅编辑 `content/`。
+
 ## 本地运行
 
 使用 Node.js 24 或兼容的受支持版本。
@@ -32,7 +36,7 @@ Vite 使用 `base: './'`，页面导航使用 Hash 路由，例如 `/ai-academy/
 - `src/components/Quiz.tsx`：六类题目与统一测试组件。
 - `src/progress.ts`：评分、抽题、备份验证和连续学习统计。
 - `src/App.tsx`：仪表盘、课程、考试、错题与学习档案。
-- `scripts/course-seeds.txt`：原创教学内容的编辑源；`scripts/build-curriculum.py` 生成独立 JSON。重新生成会覆盖 JSON 的直接修改，编辑时应选择编辑源或同步维护。
+- `content/chapters/`：中央课程发布源；`src/data/curriculum/` 是其网页投影。`scripts/course-seeds.txt` 及配套编辑脚本由 `scripts/build-curriculum.py` 导出到这两处；直接编辑中央 JSON 后不要再用旧编辑源覆盖。发布构建使用 `scripts/build_content.py`。
 - `scripts/video_enrichment.py`：视频主题的原创实操与情境题编辑源，由生成器合并到课程。运行 `python scripts/build-curriculum.py` 更新 JSON；保留原有课号，新增课程追加在对应章末。
 - `scripts/operation_guides.py`：具体操作、命令与材料链接；Claude Code 安装内容按产品要求排除。
 - `src/components/PracticeLab.tsx`：可复制任务卡、分步操作、验收与可展开故障说明。

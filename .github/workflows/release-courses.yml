@@ -1,0 +1,62 @@
+name: Publish curriculum version
+on:
+  push:
+    tags: ['courses-v*']
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: curriculum-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: python -m unittest discover -s tests/updates -v
+      - name: Validate tag and monotonic version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="${GITHUB_REF_NAME#courses-v}"
+          python scripts/check_release.py "$VERSION"
+          echo "COURSE_VERSION=$VERSION" >> "$GITHUB_ENV"
+      - run: python scripts/build_content.py --release "$COURSE_VERSION"
+      - run: python scripts/build_content.py
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - name: Publish immutable release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" "release-output/courses-$COURSE_VERSION.zip" release-output/manifest.json release-output/stable.json --title "AI Academy courses $COURSE_VERSION" --notes-file content/CHANGELOG.md --latest
+      - name: Preserve history and advance stable pointer
+        run: |
+          git fetch origin main
+          git checkout main
+          git pull --ff-only origin main
+          mkdir -p "updates/versions/$COURSE_VERSION"
+          cp release-output/manifest.json "updates/versions/$COURSE_VERSION/manifest.json"
+          cp release-output/stable.json updates/stable.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add updates
+          git commit -m "Publish curriculum manifest $COURSE_VERSION"
+          git pull --rebase origin main
+          git push origin main
+      - name: Refresh website from published course package
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main

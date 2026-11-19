@@ -7,6 +7,10 @@ ROOT=Path(__file__).resolve().parents[1]
 lessons=[l for p in sorted((ROOT/'src/data/curriculum').glob('*.json')) for l in json.loads(p.read_text(encoding='utf-8'))['lessons']]
 questions=[q for l in lessons for q in l['questions']+l['test']]
 problems=[]
+for path in (ROOT/'src/data/curriculum').glob('*.json'):
+    central=ROOT/'content/chapters'/path.name
+    if not central.exists() or json.loads(path.read_text(encoding='utf-8'))!=json.loads(central.read_text(encoding='utf-8')):
+        problems.append('Central/web content mismatch: '+path.name)
 for l in lessons:
     raw=json.dumps(l,ensure_ascii=False)
     for pattern in [r'视频融合',r'视频知识点',r'\.mp4',r'课件第\s*\d',r'逐帧核对',r'第一个关键词']:

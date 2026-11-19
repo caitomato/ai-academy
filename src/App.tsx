@@ -13,6 +13,7 @@ import {
 import { Quiz, Test } from "./components/Quiz";
 import { PracticeLab } from "./components/PracticeLab";
 import { NodeProject } from "./components/NodeProject";
+import { CourseUpdates } from "./components/CourseUpdates";
 import {
   ArrowRight,
   ArrowLeft,
@@ -1254,6 +1255,7 @@ export default function App() {
               </div>
             )}
           </div>
+          <CourseUpdates />
           <footer className="site-footer">
             <span>
               AI Academy <i>·</i> AI 零基础学习手册

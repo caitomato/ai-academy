@@ -18,3 +18,6 @@ with zipfile.ZipFile(target, 'w', zipfile.ZIP_DEFLATED) as archive:
         info.compress_type = zipfile.ZIP_DEFLATED
         archive.writestr(info, content.encode('utf-8'))
 print(target)
+central = ROOT / 'content/labs/study-timer.zip'
+central.parent.mkdir(parents=True, exist_ok=True)
+central.write_bytes(target.read_bytes())

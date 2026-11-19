@@ -1,0 +1,297 @@
+{
+  "product": "AI Academy",
+  "channel": "stable",
+  "version": "1.2.1",
+  "releaseDate": "2026-11-19",
+  "minBootstrapVersion": "1.0.0",
+  "requiresConfirmation": true,
+  "changelog": [
+    "02-04 重构为独立的 JavaScript 项目入门课",
+    "增加目录探索、配置实验与六种启动排障情境",
+    "九章教学质量整理，保留课号、题号与学习记录",
+    "移除公开来源处理清单，提供原创启动练习项目"
+  ],
+  "added": [
+    "02-04 项目交互实验与原创启动练习包"
+  ],
+  "modified": [
+    "02-04 让 JavaScript 在电脑上运行",
+    "全站概念辨析、导入与总结"
+  ],
+  "fixed": [
+    "去除公开视频制作过程信息与机械术语题",
+    "保留 1.1.0 Python 函数教学改进"
+  ],
+  "packageUrl": "https://github.com/caitomato/ai-academy/releases/download/courses-v1.2.1/courses-1.2.1.zip",
+  "sha256": "21df4896cd2f22a6097fc83f19928dcfc1b256aa154bee9f85e53685f4d9f349",
+  "packageSize": 136333,
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "704bef0237da2738b71a7ec45927cea480c05502a65fa4a3e099aedfbbbd9127",
+      "size": 986,
+      "lessonIds": []
+    },
+    {
+      "path": "chapters/chapter01.json",
+      "sha256": "ef36bca8dd33342e605e47615702f388cd669ca24f02f5f28554e099738fc3b9",
+      "size": 71454,
+      "lessonIds": [
+        "01-01",
+        "01-02",
+        "01-03",
+        "01-04",
+        "01-05",
+        "01-06",
+        "01-07"
+      ]
+    },
+    {
+      "path": "chapters/chapter02.json",
+      "sha256": "53de7ec79f245a6a1660855f34f295e196e65ea04dbc327713707aa069b9c3c9",
+      "size": 153649,
+      "lessonIds": [
+        "02-01",
+        "02-02",
+        "02-03",
+        "02-04",
+        "02-05",
+        "02-06",
+        "02-07",
+        "02-08",
+        "02-09",
+        "02-10",
+        "02-11",
+        "02-12",
+        "02-13"
+      ]
+    },
+    {
+      "path": "chapters/chapter03.json",
+      "sha256": "0a523c249d0f7469e68abba56380deaf8512998a3b4e26ac45e59daadc91dfbc",
+      "size": 121339,
+      "lessonIds": [
+        "03-01",
+        "03-02",
+        "03-03",
+        "03-04",
+        "03-05",
+        "03-06",
+        "03-07",
+        "03-08",
+        "03-09",
+        "03-10",
+        "03-11"
+      ]
+    },
+    {
+      "path": "chapters/chapter04.json",
+      "sha256": "80d59fc6aae06a4810b952384cddae02f8ed78f1771481f560cc16b3726b656c",
+      "size": 87851,
+      "lessonIds": [
+        "04-01",
+        "04-02",
+        "04-03",
+        "04-04",
+        "04-05",
+        "04-06",
+        "04-07",
+        "04-08",
+        "04-09"
+      ]
+    },
+    {
+      "path": "chapters/chapter05.json",
+      "sha256": "2e7c81cfd831388251770c4a68a7c5ce06dac38a99f4a0d5342afdc81b1a8f31",
+      "size": 78791,
+      "lessonIds": [
+        "05-01",
+        "05-02",
+        "05-03",
+        "05-04",
+        "05-05",
+        "05-06",
+        "05-07",
+        "05-08"
+      ]
+    },
+    {
+      "path": "chapters/chapter06.json",
+      "sha256": "1448568d04fdd7b7b1636973fb6399eb3a1dfc40a5de8d63769f1e9e88a7da4f",
+      "size": 125229,
+      "lessonIds": [
+        "06-01",
+        "06-02",
+        "06-03",
+        "06-04",
+        "06-05",
+        "06-06",
+        "06-07",
+        "06-08",
+        "06-09",
+        "06-10",
+        "06-11",
+        "06-12",
+        "06-13",
+        "06-14",
+        "06-15",
+        "06-16"
+      ]
+    },
+    {
+      "path": "chapters/chapter07.json",
+      "sha256": "a6df1a264fc633a37bd8a8b635d6d8ed69209c393df9dd27a54edf9cb9422290",
+      "size": 92391,
+      "lessonIds": [
+        "07-01",
+        "07-02",
+        "07-03",
+        "07-04",
+        "07-05",
+        "07-06",
+        "07-07",
+        "07-08",
+        "07-09",
+        "07-10",
+        "07-11"
+      ]
+    },
+    {
+      "path": "chapters/chapter08.json",
+      "sha256": "6e7a9cccee14e1bb42f7236e599de512b9b739d033b8105e5dfb45c17565dab4",
+      "size": 68363,
+      "lessonIds": [
+        "08-01",
+        "08-02",
+        "08-03",
+        "08-04",
+        "08-05",
+        "08-06",
+        "08-07",
+        "08-08"
+      ]
+    },
+    {
+      "path": "chapters/chapter09.json",
+      "sha256": "dc8bf6348aa213a162b86df4b7a69bda4ef79bee9a128f422a4e0ccd6c921fd6",
+      "size": 58672,
+      "lessonIds": [
+        "09-01",
+        "09-02",
+        "09-03",
+        "09-04",
+        "09-05",
+        "09-06",
+        "09-07"
+      ]
+    },
+    {
+      "path": "labs/README.md",
+      "sha256": "f3b6f95615e438be0dca07486b5c74f07288d4d5b7d97e9e8ace75b9458b95aa",
+      "size": 1135,
+      "lessonIds": []
+    },
+    {
+      "path": "labs/announcements.csv",
+      "sha256": "e4a1c9e24f0d7f9dcc237fbb2ebcc0683c8cf5178b3c375453160faa5cccede5",
+      "size": 390,
+      "lessonIds": []
+    },
+    {
+      "path": "labs/announcements.html",
+      "sha256": "930bd034dde68a19b68471d065a6354d4561ee8ae5702d1c9a230d29c0d0993f",
+      "size": 1240,
+      "lessonIds": []
+    },
+    {
+      "path": "labs/course.md",
+      "sha256": "2b869fdf7d852a4aed748134f6f1b0c003f04f64f2e86c064a6dec02469fa7d7",
+      "size": 166,
+      "lessonIds": []
+    },
+    {
+      "path": "labs/environment-check.md",
+      "sha256": "19a03e0a9cd2cb72981a9336c73a406e17981e236361933399a9f618a879a30a",
+      "size": 546,
+      "lessonIds": []
+    },
+    {
+      "path": "labs/learning.csv",
+      "sha256": "55ad71a75d1c02df3f9131ad72ae31e49f310f79d63ffc90b6baf0ec817ca444",
+      "size": 133,
+      "lessonIds": []
+    },
+    {
+      "path": "labs/notes.md",
+      "sha256": "1f2700381aa439cd04c48ce0e4c8edceca41fabbd50bab7ec285c12cfe78f607",
+      "size": 217,
+      "lessonIds": []
+    },
+    {
+      "path": "labs/slides-source.md",
+      "sha256": "43bf3f292bfef9c46f736e9cdba34ae036d74d664584d8036633da6b5588d4a6",
+      "size": 840,
+      "lessonIds": []
+    },
+    {
+      "path": "labs/state.example.json",
+      "sha256": "5615645b144fb65675217c462e2408b2b44e3c41f3fd8476f08e6788fd84922e",
+      "size": 556,
+      "lessonIds": []
+    },
+    {
+      "path": "labs/storyboard.md",
+      "sha256": "52242cb2797209240564fe923b85350bcc811aa169075c408c38d9f17baf4ee1",
+      "size": 1262,
+      "lessonIds": []
+    },
+    {
+      "path": "labs/study-card/SKILL.md",
+      "sha256": "0ff16eb4e0bc8289b3d54c431533d3184bbc877e530f94dc160115e519af58e5",
+      "size": 954,
+      "lessonIds": []
+    },
+    {
+      "path": "labs/study-timer.zip",
+      "sha256": "0a82697fc76532c087f054bca920fcb81a5981801c7e883919460d32aa83513b",
+      "size": 1559,
+      "lessonIds": []
+    },
+    {
+      "path": "labs/study.md",
+      "sha256": "5ba6b2ce9d4e0283e8765dfad45f15702fed3ede4ea431f3c22f750bdc0a09a7",
+      "size": 365,
+      "lessonIds": []
+    },
+    {
+      "path": "labs/update.md",
+      "sha256": "efad3a2cdea7ce55878314114969f16f1b3a28e0073b32777f8b0f42f3e1705a",
+      "size": 301,
+      "lessonIds": []
+    },
+    {
+      "path": "migrations.json",
+      "sha256": "986bf4aa30458d3c5270dd5c29ec29d62472dd02627cc58414b0026da7082136",
+      "size": 43,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/course-design.md",
+      "sha256": "f9032f242df371f2c22684274d2bff5989f5401005c33199780ec8676d8452da",
+      "size": 2983,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/guide.md",
+      "sha256": "be57c98f5f9b7660d083b917b1f58526af60b8440de5a5f81c956a35ad2a0b88",
+      "size": 2106,
+      "lessonIds": []
+    },
+    {
+      "path": "teaching/prompts.json",
+      "sha256": "6f4b156d74f4ba6f773b4684bdccf9e8243ece4c8368c8a8f0cf80f25d058196",
+      "size": 535,
+      "lessonIds": []
+    }
+  ]
+}

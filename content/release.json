@@ -1,10 +1,18 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "releaseDate": "2026-11-19",
   "minBootstrapVersion": "1.0.0",
   "requiresConfirmation": false,
-  "changelog": ["建立网页与本地导师共用的中央课程库", "加入版本校验、离线缓存与回滚", "保留九章九十节课程及原有课程 ID"],
+  "changelog": [
+    "补充 Python 函数的双案例验收与 return/print 区分",
+    "增加本地环境验收模板和教学反馈规则",
+    "强化模拟练习与真实实验的记录边界"
+  ],
   "added": [],
-  "modified": [],
-  "fixed": ["课程内容与学生学习记录独立存储"]
+  "modified": [
+    "06-10 Python 函数"
+  ],
+  "fixed": [
+    "教学反馈保留预测、实际结果及未验证项"
+  ]
 }

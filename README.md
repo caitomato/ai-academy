@@ -1,6 +1,6 @@
 # AI Academy · AI 零基础学院
 
-一个无后端、无需登录的中文互动学习网站。包含 9 章、90 节原创改写课程与 630 道练习及测试题，支持六类题型、章节随机考试、错题复练、收藏、笔记和本地进度。前五章的 48 节课程提供可复制任务卡、操作预期、验收清单与故障处理。
+一个无后端、无需登录的中文互动学习网站。包含 9 章、90 节原创改写课程与 630 道练习及测试题，支持六类题型、章节随机考试、错题复练、收藏、笔记和本地进度。前五章的 47 节课程提供可复制任务卡；02-04 提供独立的项目交互实验与八步启动教程。
 
 ## 本地运行
 
@@ -36,9 +36,11 @@ Vite 使用 `base: './'`，页面导航使用 Hash 路由，例如 `/ai-academy/
 - `scripts/video_enrichment.py`：视频主题的原创实操与情境题编辑源，由生成器合并到课程。运行 `python scripts/build-curriculum.py` 更新 JSON；保留原有课号，新增课程追加在对应章末。
 - `scripts/operation_guides.py`：具体操作、命令与材料链接；Claude Code 安装内容按产品要求排除。
 - `src/components/PracticeLab.tsx`：可复制任务卡、分步操作、验收与可展开故障说明。
-- `src/components/VideoLesson.tsx`：02-04 视频融合样板，包含原创画面、限定命令的终端模拟与独立实操记录。
-- `src/data/video-index.json`：35 个来源视频的安全目录、主课映射与真实处理状态。`duration` 单位为秒；未知字段为 `null`。`transcript` 不存完整原始文稿，`timestamps` 仅在实际核对后填写；当前为空。`frameImages` 描述原创重绘所参考的课件页，不代表发布了原始截帧。分辨率仅在样板的 `playbackResolution` 记录在线播放解码信息。
-- `scripts/video_sample.py`：样板的原创 3 道课堂题与 4 道测试题，保留原题号；由课程生成器合并。
+- `src/components/NodeProject.tsx`：独立项目地图、配置探索、命令分类和六种启动情境；仅浏览器模拟。
+- `scripts/node_course.py`：02-04 原创课程编辑源，保留课号及七个题号。
+- `scripts/course_quality.py` 与 `scripts/concept-checks.txt`：九章教学整理与逐课概念辨析题。
+- `scripts/audit-curriculum.py`：扫描课程及构建产物，内部报告写入已忽略的 materials/reports/。
+- `COURSE-DESIGN.md`：统一教学契约、按知识类型设计实验的方法及发布验收标准。
 - `public/practice-kit/`：虚构笔记、CSV、公告页、知识库、技能样例与分镜模板，可直接下载使用。
 - `CONTENT.md`：目录合并、内容来源和版本说明。
 
@@ -57,3 +59,5 @@ LocalStorage 键为 `ai-academy.progress.v1`，保存进度、收藏、作答、
 `local-source/` 包含仅供本地核对的原 PDF 与提取文本，已加入 `.gitignore`，不进入构建产物。公开站点只包含主题结构、原创讲解、案例及练习，不分发 PDF、会员信息或原文长段落。讲解标明原资料主题与补充内容；安装、版本和价格不作为当前事实保证。
 
 `materials/` 同样不进入版本控制，可存放 `videos/`、`pdf/`、`transcripts/`、`frames/` 与 `reports/`。在线检查不会伪造这些目录中的本地音频、完整转录或逐帧成果。在线文稿阅读与音频转录分别记录，课程生成与来源覆盖质量检查分别记录；未满足条件的状态保持待处理。
+
+02-04 新实验以 `02-04:project-lab-v2` 记录在原 LocalStorage tasks 中，旧模拟记录继续保留但不算新版实验完成。原有成绩、收藏、笔记与完成状态不清空。

@@ -12,7 +12,7 @@ import {
 } from "./progress";
 import { Quiz, Test } from "./components/Quiz";
 import { PracticeLab } from "./components/PracticeLab";
-import { VideoLesson } from "./components/VideoLesson";
+import { NodeProject } from "./components/NodeProject";
 import {
   ArrowRight,
   ArrowLeft,
@@ -766,13 +766,13 @@ export default function App() {
                     第 {chapter.id} 章 · {chapter.title}
                   </span>
                   <h1>{lesson.title}</h1>
+                  {lesson.subtitle && <p className="lesson-subtitle">{lesson.subtitle}</p>}
                   <div className="lesson-header-meta">
                     <span>
                       <Clock3 size={16} />
                       {lesson.minutes} 分钟
                     </span>
-                    <span>{lesson.pages === "视频补充" ? "视频主题补充" : `原资料第 ${lesson.pages} 页`}</span>
-                    <span>原创教学改写</span>
+                    <span>{state.completed.includes(id) ? "已完成学习" : "进行中的学习"}</span>
                     <button
                       className={`text-button ${state.bookmarks.includes(id) ? "saved" : ""}`}
                       onClick={() => toggle("bookmarks", id)}
@@ -781,9 +781,11 @@ export default function App() {
                       {state.bookmarks.includes(id) ? "已收藏" : "收藏课程"}
                     </button>
                   </div>
+                  <div className="lesson-milestones"><span>本课学习环节：阅读标记、实践记录、课后测试 ≥80 分{lesson.experience ? "、交互实验" : ""}</span><Progress value={Math.round(100 * (Number(state.completed.includes(id)) + Number(state.tasks.includes(id)) + Number((state.scores[id] ?? -1) >= 80) + (lesson.experience ? Number(state.tasks.includes(`${id}:project-lab-v2`)) : 0)) / (lesson.experience ? 4 : 3))} /></div>
                 </div>
                 <div className="lesson-layout">
                   <div className="lesson-content">
+                    <section id="introduction" className="course-opening"><span className="eyebrow">从一个问题开始</span><h2>{lesson.experience ? "代码已经有了，为什么还跑不起来？" : lesson.title + "：先解决什么问题？"}</h2><p>{lesson.introduction || lesson.example}</p></section>
                     <section id="objectives" className="objectives">
                       <span className="eyebrow">这一节，你将能够</span>
                       {lesson.objectives.map((o) => (
@@ -809,7 +811,7 @@ export default function App() {
                           </span>
                         ))}
                       </div>
-                      <div className="flow-diagram" aria-label="本节流程示意">
+                      {lesson.experience ? <div className="role-diagram" aria-label="Node、npm 与配置的职责"><div className="runtime-lane"><span>JavaScript 代码</span><b aria-hidden="true">↓</b><span>Node.js 负责运行</span><b aria-hidden="true">↓</b><span>程序执行</span></div><div className="support-lane"><p><strong>npm</strong><br />管理软件包，执行清单中的脚本</p><p><strong>package.json</strong><br />记录项目配置、脚本与依赖</p><p className="muted">本图描述 Node 程序。网页中的 DOM 代码由浏览器执行。</p></div></div> : <div className="flow-diagram" aria-label="本节流程示意">
                         {lesson.steps.map((s, i) => (
                           <div key={s}>
                             <span>{String(i + 1).padStart(2, "0")}</span>
@@ -819,10 +821,10 @@ export default function App() {
                             )}
                           </div>
                         ))}
-                      </div>
+                      </div>}
                     </section>
-                    <VideoLesson key={id} lessonId={id} completed={state.tasks.includes(`${id}:video-sim`)} onComplete={() => setState((s) => ({ ...s, tasks: [...new Set([...s.tasks, `${id}:video-sim`])] }))} />
-                    <section id="example" className="reading">
+                    {lesson.experience && <NodeProject key={id} experience={lesson.experience} completed={state.tasks.includes(`${id}:project-lab-v2`)} onComplete={() => setState((s) => ({ ...s, tasks: [...new Set([...s.tasks, `${id}:project-lab-v2`])] }))} />}
+                    {!lesson.experience && <section id="example" className="reading">
                       <span className="eyebrow">02 · 案例演示</span>
                       <h2>把知识放进真实任务</h2>
                       <div className="example-box">
@@ -841,7 +843,7 @@ export default function App() {
                           </p>
                         </>
                       )}
-                    </section>
+                    </section>}
                     <section id="practice" className="reading">
                       <span className="eyebrow">03 · 动手实践</span>
                       <h2>轮到你来试一试</h2>
@@ -890,7 +892,7 @@ export default function App() {
                     <section id="summary" className="summary-box">
                       <span className="eyebrow">05 · 带走这几件事</span>
                       <h2>本节小结</h2>
-                      <p>{lesson.sections[0].text}</p>
+                      <p>{lesson.summary || lesson.sections[0].text}</p>
                       <h3>常见误区</h3>
                       <p>不要把“{lesson.misconception}”当作正确结论。</p>
                       <h3>关键术语</h3>
@@ -910,12 +912,7 @@ export default function App() {
                         onFinish={(answers, score) => record(answers, score)}
                       />
                     </section>
-                    <p className="source-note">
-                      {lesson.sourceNote}{" "}
-                        PDF 资料日期：2026-06-03；课程整理日期：2026-11-19。
-                      {lesson.id === "03-08" &&
-                        "本节原文仅有简略条目，流程与练习为补充教学。"}
-                    </p>
+                    <section id="references" className="course-references"><h2>资料与延伸阅读</h2><p>{lesson.sourceNote}</p>{lesson.pages !== "视频补充" && <p className="muted">研发参考：《AI学习文档》，物理页 {lesson.pages}，资料日期 2026-06-03。课程整理：2026-11-19。</p>}{lesson.references && <ul>{lesson.references.map((reference) => <li key={reference.href}><a href={reference.href} target="_blank" rel="noreferrer">{reference.title}</a></li>)}</ul>}</section>
                     <div className="lesson-footer">
                       <button
                         className="secondary"
@@ -956,14 +953,16 @@ export default function App() {
                   <aside className="lesson-toc panel">
                     <span className="eyebrow">本节导航</span>
                     {[
+                      ["introduction", "课程导入"],
                       ["objectives", "学习目标"],
                       ["concepts", "知识讲解"],
-                      ...(id === "02-04" ? [["video-knowledge", "视频知识点"], ["video-frames", "重点画面"], ["video-practical", "视频实操"]] : []),
-                      ["example", "案例演示"],
+                      ...(lesson.experience ? [["project-structure", "项目结构"], ["project-workflow", "启动流程"], ["experiments", "交互实验"], ["troubleshooting", "故障排除"]] : []),
+                      ...(!lesson.experience ? [["example", "案例演示"]] : []),
                       ["practice", "动手实践"],
                       ["interact", "互动练习"],
                       ["summary", "本节总结"],
                       ["test", "课后测试"],
+                      ["references", "资料参考"],
                     ].map(([target, label], i) => (
                       <button
                         key={target}
@@ -978,6 +977,8 @@ export default function App() {
                       </button>
                     ))}
                     <hr />
+                    <h4>关键知识点</h4>
+                    <div className="term-list">{lesson.terms.map((term) => <span className="tag" key={term}>{term}</span>)}</div>
                     <h4>本章完成度 · {chapterPercent(chapter.id)}%</h4>
                     <Progress value={chapterPercent(chapter.id)} />
                     <p className="muted">

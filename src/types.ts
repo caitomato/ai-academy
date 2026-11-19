@@ -26,6 +26,18 @@ export type Lesson = {
   questions: Question[];
   test: Question[];
   sourceNote?: string;
+  subtitle?: string;
+  introduction?: string;
+  summary?: string;
+  references?: { title: string; href: string }[];
+  experience?: {
+    kind: "node-project";
+    projectName: string;
+    files: { name: string; description: string; content?: string }[];
+    fields: { name: string; explanation: string; content: string }[];
+    walkthrough: { title: string; action: string; command: string; expected: string; reason: string; recovery: string }[];
+    troubleshooting: { symptom: string; diagnosis: string; resolution: string }[];
+  };
   lab?: {
     title: string;
     setup: string;

@@ -44,6 +44,7 @@ jobs:
           gh release create "$GITHUB_REF_NAME" "release-output/courses-$COURSE_VERSION.zip" release-output/manifest.json release-output/stable.json --title "AI Academy courses $COURSE_VERSION" --notes-file content/CHANGELOG.md --latest
       - name: Preserve history and advance stable pointer
         run: |
+          git restore src/data/curriculum public/practice-kit src/data/migrations.json src/data/published-release.json
           git fetch origin main
           git checkout main
           git pull --ff-only origin main

@@ -1,9 +1,11 @@
 {
-  "version": "1.2.2",
+  "version": "2.0.0",
   "releaseDate": "2026-11-19",
-  "minBootstrapVersion": "1.0.0",
+  "minBootstrapVersion": "2.0.0",
   "requiresConfirmation": true,
   "changelog": [
+    "新增本地导师入学、续学、评分、实验记录和档案备份恢复",
+    "全部九章 90 课按课加载，保留课程 ID 和 630 个题号",
     "02-04 重构为独立的 JavaScript 项目入门课",
     "增加目录探索、配置实验与六种启动排障情境",
     "九章教学质量整理，保留课号、题号与学习记录",
@@ -11,6 +13,7 @@
     "统一中央构建入口与本地实验材料加载规则"
   ],
   "added": [
+    "四条学习路线、三级难度与 Local School 教学入口",
     "02-04 项目交互实验与原创启动练习包"
   ],
   "modified": [

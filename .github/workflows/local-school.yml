@@ -1,0 +1,21 @@
+name: Local School compatibility
+on:
+  push:
+    paths: ['bootstrap/**', 'scripts/**', 'content/**', 'tests/updates/**', '.github/workflows/local-school.yml']
+  pull_request:
+  workflow_dispatch:
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests/updates -v
+      - run: python scripts/build_content.py --release 2.0.0 --output release-output/test

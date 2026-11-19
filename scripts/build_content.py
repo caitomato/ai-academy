@@ -5,6 +5,7 @@ import json
 import re
 import shutil
 import zipfile
+from skill_curriculum import generate
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -77,6 +78,7 @@ def content_files(source):
                 result[p.relative_to(source).as_posix()] = p.read_bytes()
     result['migrations.json'] = (source / 'migrations.json').read_bytes()
     result['CHANGELOG.md'] = (source / 'CHANGELOG.md').read_bytes()
+    result.update(generate(validate(source)))
     return result
 
 
@@ -153,11 +155,11 @@ def main():
         v = args.bootstrap_release
         if not VERSION.fullmatch(v):
             raise ValueError('Invalid bootstrap version')
-        files = {name: (ROOT / 'bootstrap' / name).read_bytes() for name in ['SKILL.md', 'launch.py', 'install.py', 'scripts/academy.py', 'scripts/state.py']}
+        files = {name: (ROOT / 'bootstrap' / name).read_bytes() for name in ['SKILL.md', 'launch.py', 'install.py', 'scripts/academy.py', 'scripts/state.py', 'scripts/school.py']}
         args.output.mkdir(parents=True, exist_ok=True)
         package = args.output / f'bootstrap-{v}.zip'
         zip_bytes(files, package)
-        manifest = dict(product='AI Academy Bootstrap', version=v, installerVersion='1.0.0', packageUrl=f'{REPOSITORY}/releases/download/bootstrap-v{v}/{package.name}', sha256=digest(package.read_bytes()), files=[dict(path=n, sha256=digest(b)) for n,b in sorted(files.items())])
+        manifest = dict(product='AI Academy Bootstrap', version=v, installerVersion='2.0.0', packageUrl=f'{REPOSITORY}/releases/download/bootstrap-v{v}/{package.name}', sha256=digest(package.read_bytes()), files=[dict(path=n, sha256=digest(b)) for n,b in sorted(files.items())])
         (args.output / 'bootstrap.json').write_bytes(encode(manifest))
     elif args.release:
         manifest = build_release(ROOT / 'content', args.output, args.release, args.channel)

@@ -13,7 +13,7 @@ import urllib.request
 import zipfile
 from pathlib import Path, PurePosixPath
 
-BOOTSTRAP_VERSION = '1.0.0'
+BOOTSTRAP_VERSION = '2.0.0'
 STABLE_URL = 'https://github.com/caitomato/ai-academy/releases/latest/download/stable.json'
 SEMVER = re.compile(r'^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$')
 MAX_PACKAGE = 64 * 1024 * 1024

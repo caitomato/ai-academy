@@ -9,7 +9,8 @@ import tempfile
 import zipfile
 from pathlib import Path
 
-VERSION = '1.0.0'
+VERSION = '2.0.0'
+FILES = ['SKILL.md', 'launch.py', 'install.py', 'scripts/academy.py', 'scripts/state.py', 'scripts/school.py']
 BASE = Path(__file__).resolve().parent
 
 
@@ -28,7 +29,7 @@ def install(source, home, host, skill_root=None, core_version=VERSION):
     destination.parent.mkdir(parents=True, exist_ok=True)
     core = core_module(source)
     core.version(core_version)
-    required = ['SKILL.md', 'launch.py', 'install.py', 'scripts/academy.py', 'scripts/state.py']
+    required = FILES
     for name in required:
         if not (source / name).is_file():
             raise ValueError('Incomplete bootstrap: ' + name)
@@ -55,16 +56,30 @@ def install(source, home, host, skill_root=None, core_version=VERSION):
     current = core.read_json(root / 'current.json', {})
     if current and current.get('version') != core_version:
         core.atomic_json(root / 'previous.json', current)
-    target_root = Path(skill_root) if skill_root else Path.home() / ('.codex/skills' if host == 'codex' else '.claude/skills')
+    receipt = core.read_json(root / ('installed-' + host + '.json'), {})
+    if skill_root:
+        target_root = Path(skill_root)
+    elif receipt.get('skill'):
+        target_root = Path(receipt['skill']).parent
+    elif host == 'codex' and (Path.home()/'.codex/skills/ai-academy/SKILL.md').exists():
+        target_root = Path.home()/'.codex/skills'
+    else:
+        target_root = Path.home() / ('.agents/skills' if host == 'codex' else '.claude/skills')
     skill = target_root / 'ai-academy'
     skill.mkdir(parents=True, exist_ok=True)
+    existing = skill / 'SKILL.md'
+    if existing.exists() and (receipt.get('skill') != str(skill) or hashlib.sha256(existing.read_bytes()).hexdigest() != receipt.get('sha256')):
+        # v1 had no receipt. Do not guess ownership or overwrite user changes.
+        raise ValueError('目标 Skill 已存在且无匹配安装凭据。请先备份并移走该入口，或使用 --skill-root 选择新目录。')
     text = (source / 'SKILL.md').read_text(encoding='utf-8-sig')
     text = text.replace('~/.ai-academy', home.as_posix())
+    text = text.replace('CORE_DIRECTORY', destination.as_posix())
     # Skill write is prepared before activation; course instructions are never embedded here.
     temporary = skill / 'SKILL.md.tmp'
     temporary.write_text(text, encoding='utf-8')
     os.replace(temporary, skill / 'SKILL.md')
     core.atomic_json(root / 'current.json', dict(version=core_version))
+    core.atomic_json(root / ('installed-' + host + '.json'), dict(skill=str(skill), sha256=hashlib.sha256((skill/'SKILL.md').read_bytes()).hexdigest()))
     return str(skill)
 
 
@@ -86,7 +101,7 @@ def upgrade(home, host, skill_root=None):
         root = Path(tmp)
         archive = root / 'bootstrap.zip'
         archive.write_bytes(body)
-        allowed = {'SKILL.md', 'launch.py', 'install.py', 'scripts/academy.py', 'scripts/state.py'}
+        allowed = set(FILES)
         inventory = {x['path']: x['sha256'] for x in manifest['files']}
         if set(inventory) != allowed:
             raise ValueError('Unexpected bootstrap files')
@@ -106,11 +121,55 @@ def upgrade(home, host, skill_root=None):
         return install(source, home, host, skill_root, v)
 
 
+def uninstall(home, host, confirm=False):
+    if not confirm:
+        raise ValueError('卸载需要 --confirm；保留全部课程和学习记录。')
+    core = core_module(BASE)
+    receipt = core.read_json(Path(home) / 'bootstrap' / ('installed-' + host + '.json'), {})
+    if not receipt: raise ValueError('没有安装凭据；不会删除未知文件。')
+    target = Path(receipt['skill']) / 'SKILL.md'
+    if target.exists():
+        if hashlib.sha256(target.read_bytes()).hexdigest() != receipt['sha256']:
+            raise ValueError('Skill 已被修改，保留文件，请手动检查。')
+        target.unlink()
+    return '已卸载教学入口；课程、学习记录和实验文件均已保留。'
+
+
+def rollback(home, host, skill_root=None, confirm=False):
+    if not confirm: raise ValueError('核心回滚需要 --confirm；在新会话中使用。')
+    core = core_module(BASE)
+    previous = core.read_json(Path(home)/'bootstrap/previous.json', {})
+    if not previous: raise ValueError('没有可回滚的核心。')
+    core.version(previous['version'])
+    source = Path(home)/'bootstrap/versions'/previous['version']
+    if not (source/'scripts/school.py').exists():
+        raise ValueError('旧核心不支持本地课堂，保留当前核心。可手动恢复旧安装包。')
+    return install(source, home, host, skill_root, previous['version'])
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--host', choices=['codex', 'claude'], required=True)
+    parser.add_argument('--host', choices=['codex', 'claude'])
     parser.add_argument('--home', type=Path, default=Path.home() / '.ai-academy')
     parser.add_argument('--skill-root', type=Path)
     parser.add_argument('--upgrade', action='store_true')
+    parser.add_argument('--uninstall', action='store_true')
+    parser.add_argument('--confirm', action='store_true')
+    parser.add_argument('--verify', action='store_true')
+    parser.add_argument('--rollback', action='store_true')
     args = parser.parse_args()
-    print(upgrade(args.home, args.host, args.skill_root) if args.upgrade else install(BASE, args.home, args.host, args.skill_root))
+    if not args.host:
+        args.host = 'claude' if input('安装到哪个工具？1 Codex / 2 Claude Code [1]：').strip() == '2' else 'codex'
+    if args.rollback:
+        print(rollback(args.home, args.host, args.skill_root, args.confirm))
+    elif args.uninstall:
+        print(uninstall(args.home, args.host, args.confirm))
+    elif args.verify:
+        core = core_module(BASE)
+        receipt = core.read_json(args.home / 'bootstrap' / ('installed-'+args.host+'.json'), {})
+        target = Path(receipt.get('skill',''))/'SKILL.md'
+        if not target.is_file() or hashlib.sha256(target.read_bytes()).hexdigest()!=receipt.get('sha256'):
+            raise SystemExit('安装验证失败，请重新安装或检查本地修改。')
+        print('安装验证通过：'+str(target))
+    else:
+        print(upgrade(args.home, args.host, args.skill_root) if args.upgrade else install(BASE, args.home, args.host, args.skill_root))

@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'scripts'))
 sys.path.insert(0, str(ROOT / 'bootstrap/scripts'))
-from build_content import build_release, validate, digest, encode
+from build_content import build_release, validate, digest, encode, content_files
 from academy import Academy, STABLE_URL, validate_manifest, fetch
 
 
@@ -88,8 +88,9 @@ class UpdateContract(unittest.TestCase):
         self.assertEqual(self.server.calls.count(v2['packageUrl']), count)
         for n,u in users.items():
             self.assertEqual({p.name: p.read_bytes() for p in (u.home / 'state').iterdir()}, snapshots[n])
+        expected_files = content_files(self.source)
         for item in v2['files']:
-            self.assertEqual((users['A'].courses / '1.1.0' / item['path']).read_bytes(), (self.source / item['path']).read_bytes())
+            self.assertEqual((users['A'].courses / '1.1.0' / item['path']).read_bytes(), expected_files[item['path']])
 
     def test_failure_keeps_old_version_and_explicit_rollback(self):
         user = self.user('A')

@@ -1,4 +1,15 @@
 import type { Question, State } from "./types";
+import migrations from "./data/migrations.json";
+
+export function migrateState(state: State, mapping: { lessonIds: Record<string, string>; questionIds: Record<string, string> } = migrations): State {
+  const alias = (items: string[], ids: Record<string, string>) => [...new Set(items.flatMap((id) => ids[id] ? [id, ids[id]] : [id]))];
+  const records = <T,>(values: Record<string, T>) => {
+    const next = { ...values };
+    for (const [old, id] of Object.entries(mapping.lessonIds)) if (old in values && !(id in next)) next[id] = values[old];
+    return next;
+  };
+  return { ...state, completed: alias(state.completed, mapping.lessonIds), bookmarks: alias(state.bookmarks, mapping.lessonIds), recent: alias(state.recent, mapping.lessonIds), tasks: alias(state.tasks, mapping.lessonIds), resolved: alias(state.resolved, mapping.questionIds), scores: records(state.scores), notes: records(state.notes), attempts: state.attempts.map((a) => ({ ...a, questionId: mapping.questionIds[a.questionId] || a.questionId })) };
+}
 export const STORAGE_KEY = "ai-academy.progress.v1";
 export const emptyState = (): State => ({
   version: 1,
@@ -77,7 +88,7 @@ export function parseState(raw: string): State {
     throw new Error("备份格式不正确，原有记录未改变。");
   if (s.taskDays !== undefined && !strings(s.taskDays))
     throw new Error("实践日期格式不正确。");
-  return { ...s, taskDays: s.taskDays || [] };
+  return migrateState({ ...s, taskDays: s.taskDays || [] });
 }
 export function today() {
   const d = new Date();

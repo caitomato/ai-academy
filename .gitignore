@@ -9,3 +9,7 @@ __pycache__/
 
 # Private teaching sources and derived transcripts / frames
 materials/
+# Generated distribution artifacts
+release-output/
+public/downloads/
+public/updates/

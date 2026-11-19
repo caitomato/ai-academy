@@ -1,0 +1,41 @@
+name: Publish bootstrap core
+on:
+  push:
+    tags: ['bootstrap-v*']
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: bootstrap-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests/updates -v
+      - run: python scripts/build_content.py --bootstrap-release "${GITHUB_REF_NAME#bootstrap-v}"
+      - name: Publish independent bootstrap version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" release-output/bootstrap-* release-output/bootstrap.json --title "AI Academy Bootstrap ${GITHUB_REF_NAME#bootstrap-v}" --notes 'Lightweight bootstrap core; no course materials or student data included.' --latest=false
+      - name: Update bootstrap pointer
+        run: |
+          git fetch origin main
+          git checkout main
+          git pull --ff-only origin main
+          cp release-output/bootstrap.json updates/bootstrap.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add updates/bootstrap.json
+          git commit -m "Publish bootstrap manifest $GITHUB_REF_NAME"
+          git pull --rebase origin main
+          git push origin main
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main

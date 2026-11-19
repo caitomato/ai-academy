@@ -1,7 +1,7 @@
 {
   "product": "AI Academy",
   "channel": "stable",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "releaseDate": "2026-11-19",
   "minBootstrapVersion": "1.0.0",
   "requiresConfirmation": true,
@@ -9,7 +9,8 @@
     "02-04 重构为独立的 JavaScript 项目入门课",
     "增加目录探索、配置实验与六种启动排障情境",
     "九章教学质量整理，保留课号、题号与学习记录",
-    "移除公开来源处理清单，提供原创启动练习项目"
+    "移除公开来源处理清单，提供原创启动练习项目",
+    "统一中央构建入口与本地实验材料加载规则"
   ],
   "added": [
     "02-04 项目交互实验与原创启动练习包"
@@ -20,16 +21,17 @@
   ],
   "fixed": [
     "去除公开视频制作过程信息与机械术语题",
-    "保留 1.1.0 Python 函数教学改进"
+    "保留 1.1.0 Python 函数教学改进",
+    "旧编辑脚本不再覆盖中央教材"
   ],
-  "packageUrl": "https://github.com/caitomato/ai-academy/releases/download/courses-v1.2.1/courses-1.2.1.zip",
-  "sha256": "21df4896cd2f22a6097fc83f19928dcfc1b256aa154bee9f85e53685f4d9f349",
-  "packageSize": 136333,
+  "packageUrl": "https://github.com/caitomato/ai-academy/releases/download/courses-v1.2.2/courses-1.2.2.zip",
+  "sha256": "6e46900172e8a0cdadaa8f8ebc165919742ef5fd197f1de5000fe456560fba14",
+  "packageSize": 136658,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "704bef0237da2738b71a7ec45927cea480c05502a65fa4a3e099aedfbbbd9127",
-      "size": 986,
+      "sha256": "407aba193317f12a8db496a5a9c62a8763ace6be244466174b042b5ffcfa5b85",
+      "size": 1232,
       "lessonIds": []
     },
     {
@@ -283,8 +285,8 @@
     },
     {
       "path": "teaching/guide.md",
-      "sha256": "be57c98f5f9b7660d083b917b1f58526af60b8440de5a5f81c956a35ad2a0b88",
-      "size": 2106,
+      "sha256": "c5be421664f09b90cd8c4fa1ed1b9f6f62f800791ad97e720e21308135a6803b",
+      "size": 2499,
       "lessonIds": []
     },
     {
